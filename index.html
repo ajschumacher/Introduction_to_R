@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Introduction to R</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Introduction to R">
+  <meta name="author" content="NYU Data Services">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+    <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+    <!-- END LOGO SLIDE -->
+    
+
+    <!-- TITLE SLIDE -->
+    <!-- Should I move this to a Local Layout File? -->
+    <slide class="title-slide segue nobackground">
+      <hgroup class="auto-fadein">
+        <h1>Introduction to R</h1>
+        <h2></h2>
+        <p>NYU Data Services<br/></p>
+      </hgroup>
+          </slide>
+
+    <!-- SLIDES -->
+      <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Outline</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Overview of R </li>
+<li>Getting Started with R </li>
+<li>Managing Data in R </li>
+<li>Descriptive Statistics </li>
+<li>Basic Analysis </li>
+<li>Additional Help </li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>What is R?</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>A programming language designed for statistical computing and geographical representations of data.</li>
+<li>Comparable tools include: MATLAB, Python, SAS, Stata and SPSS</li>
+<li>Open source:
+
+<ul>
+<li>Free to download and use</li>
+<li>Source Code is available</li>
+<li>User Input</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Accessing R</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>At NYU
+
+<ul>
+<li>DSS Workstations (5<sup>th</sup> floor of Bobst Library)</li>
+<li>Most ITS Labs</li>
+</ul></li>
+<li>At Home
+
+<ul>
+<li>Free download/install: <a href="http://cran.r-project.org/">cran.r-project.org</a></li>
+<li>Virtual Computing Lab (students only)</li>
+<li>HPC Clusters (required account)</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Interactive CLI</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>R&#39;s default graphical user interface (GUI) is an interactive command line interface (CLI).</li>
+</ul>
+
+<p>~MISSING IMAGE~</p>
+
+<ul>
+<li>Commands and expressions can be entered and evaluated line by line.</li>
+<li>R GUIs are also available - <a href="http://sciviews.org/_rgui/">sciviews.org/_rgui/</a></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Working Directories</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>A working directory is the current file directory used reference importing and exporting files to/from R.</li>
+<li>Paths are used to reference locations outside of the current directory.
+
+<ul>
+<li>Folders are denoted by forward slashes: <code>/</code></li>
+<li>Moving up a folder is denoted by two periods: <code>..</code></li>
+</ul></li>
+<li>Check the current working directory: <code>getwd()</code></li>
+<li>Change the working directory: <code>setwd(&quot;&lt;path&gt;&quot;)</code></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Working Directories</h2>
+  </hgroup>
+  <article>
+    <p>~MISSING IMAGE~</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Writing R Programs</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>R scripts should be written and saved instead of interactively using R&#39;s CLI.</li>
+<li>Some advantages to writing R scripts include:
+
+<ul>
+<li>Possibility to reuse code</li>
+<li>Allows for editing of code</li>
+<li>Easier to write and read complex expressions</li>
+</ul></li>
+<li>Comments can be added to a script with &quot;<code>#</code>&quot;</li>
+<li>Programs can be written in any text editor, including R&#39;s document editor, and called using the <code>source()</code> function.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Using Functions</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Functions allow users to easily perform complex tasks using custom input and specifications.</li>
+<li>To call a function type its function name followed by the desired set argument(s) enclosed in parenthesis.</li>
+</ul>
+
+<pre><code class="r">sqrt(4^2)
+</code></pre>
+
+<ul>
+<li>Parenthesis are still required when a function takes no arguments.</li>
+</ul>
+
+<pre><code class="r">getwd()
+</code></pre>
+
+<ul>
+<li>The most important function is likely <code>help()</code>.</li>
+<li>Take note of the default arguments for each function.</li>
+</ul>
+
+<pre><code class="r">sum(c(1, 2, 3, NA))
+sum(c(1, 2, 3, NA), rm.na = TRUE)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>Packages</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Collections of user-created functions that are tested by and freely distributed to the R community.</li>
+<li>Users submit packages on a regular basis (4063 available as of 9/2012).</li>
+<li>Using a package requires a 3 steps:</li>
+</ul>
+
+<p>1. Install the package on your local machine (note: only needs to be done once per machine)</p>
+
+<pre><code class="r">install.packages(&quot;&lt;package name&gt;&quot;)
+</code></pre>
+
+<p>2. Load the install package (note: needs to be done each time R is opened)</p>
+
+<pre><code class="r">library(&lt;package name&gt;)
+</code></pre>
+
+<p>3. Use the packages&#39; objects</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Objects</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Objects are symbolic names that represent some form of information.</li>
+<li>In R there is no need to define an object&#39;s type upon declaration.</li>
+</ul>
+
+<pre><code class="r">var1 = 5
+var2 = &quot;a&quot;
+</code></pre>
+
+<ul>
+<li>R utilizes generic functions based upon an object&#39;s class. Use the <code>class()</code> function to check an object&#39;s class.</li>
+</ul>
+
+<pre><code class="r">class(var1)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>Vectors</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Vectors are basically one-dimensional arrays that hold one type, or class, of information.</li>
+<li>The <code>c()</code> function can be used to combine elements into a vector.</li>
+</ul>
+
+<pre><code class="r">v1 = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;)
+</code></pre>
+
+<ul>
+<li>Elements of a vector can be referenced via brackets and their corresponding index, which ranges from 1 to the number of elements in the vector.</li>
+</ul>
+
+<pre><code class="r">v1[2]
+</code></pre>
+
+<pre><code>## [1] &quot;b&quot;
+</code></pre>
+
+<pre><code class="r">v1[c(4, 1)]
+</code></pre>
+
+<pre><code>## [1] &quot;d&quot; &quot;a&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Workspace</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>R&#39;s workspace contains all currently accessible objects.</li>
+<li>The workspace can be viewed with the <code>ls()</code> function.</li>
+<li>Objects can be deleted with the <code>rm()</code> function.</li>
+<li>the entire workspace can be saved to a .Rdata file with the <code>save.image()</code> function.</li>
+<li>An entire workspace can be loaded, and used later, with the <code>load()</code> function.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Data Frames</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>R&#39;s class for tabular datasets is data frame.</li>
+<li>The <code>data.frame()</code> function can be used convert a set of vectors of equal length, but potentially different classes, into a data fram.</li>
+<li>Data frame elements can be referenced using brackets and indices, like so: <code>&lt;dataframe&gt;[&lt;row&gt;,&lt;column&gt;]</code>.</li>
+<li>Columns also have names that can be referenced vis &quot;$&quot;.</li>
+</ul>
+
+<pre><code class="r">names(data)
+data$score
+</code></pre>
+
+<ul>
+<li>Since one column is a vector, elements of a column can still be referenced with brackets and an index.</li>
+</ul>
+
+<pre><code class="r">data$score[2]
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>Importing Datasets</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Datasets of virtually any format can be imported into R, however some formats may require packages.</li>
+<li>Raw data can be read in using functions like <code>read.csv()</code>, <code>read.table()</code> or <code>scan()</code>, and the &quot;foreign&quot; package offers a number of functions that can import datasets from other statistically packages, including SPSS, SAS, and Stata.</li>
+<li>Remember that calling a function does not automatically save the result to an object, so make sure to save the imported dataset to specified object.</li>
+</ul>
+
+<pre><code class="r">data = read.csv(file = &quot;&lt;rtut.csv&gt;&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Editing Data</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Raw data can manually be edited by referencing the elements you would like to change and their desired new value(s).</li>
+</ul>
+
+<pre><code class="r">data$id[1] = -99
+</code></pre>
+
+<ul>
+<li>The <code>edit()</code> function can also be used to edit data in a spreadsheet-like fashion.</li>
+</ul>
+
+<pre><code class="r">data = edit(data)
+</code></pre>
+
+<ul>
+<li>Variables may also need to be edited.
+
+<ul>
+<li>Check the class of each variable via <code>str()</code> or <code>class()</code>.</li>
+<li>Use functions to update classes, such as <code>as.factor()</code>.</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Recoding &amp; Computing Variables</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Variables can be recoded in a number of ways, particularly the <code>recode()</code> function in the &quot;car&quot; package.</li>
+<li>Recoded variables can either be new or replace already existing variables depending on the object that is stored in.</li>
+</ul>
+
+<pre><code class="r">data$health2 = recode(data$health2, &quot;1=5;2=4;3=3;4=2;5=1&quot;)
+data$health2_R = recode(data$health2, &quot;1=5;2=4;3=3;4=2;5=1&quot;)
+</code></pre>
+
+<ul>
+<li>Variables can be created referencing a new variable name in a data frame.</li>
+</ul>
+
+<pre><code class="r">&lt;dataframe&gt;$&lt;new name&gt; = &lt;vector of desired information&gt;
+data$health = mean(data[,c(“health1”, “health2”, … , “health6”)])
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Creating Subsets</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Subsets may be created by manually referencing elements.</li>
+</ul>
+
+<pre><code class="r">sub1 &lt;- data[2:5, c(&quot;age&quot;, &quot;health&quot;)]
+</code></pre>
+
+<ul>
+<li>The <code>which()</code> function can also be used to select element indices based upon a conditional statement.</li>
+</ul>
+
+<pre><code class="r">sub2 &lt;- data[which(data$age &gt; 40), c(&quot;age&quot;, &quot;health&quot;)]
+</code></pre>
+
+<ul>
+<li>The <code>subset()</code> function can also be used and is likely the best choice for more complex subsets.</li>
+</ul>
+
+<pre><code class="r">sub3 &lt;- subset(data, age &gt; 40, select = c(&quot;age&quot;, &quot;health&quot;))
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Descriptive Statistics &amp; Graphics</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>R offers a great deal of descriptive statistics and graphics applications via base functions and in numerous packages.</li>
+<li>Some commonly used functions include:
+
+<ul>
+<li>Descriptives: <code>summary()</code>, <code>table()</code>, <code>mean()</code>, and <code>sd()</code></li>
+<li>Graphics: <code>plot()</code>, <code>boxplot()</code> and <code>barplot()</code></li>
+</ul></li>
+<li>Some commonly used graphics packages include &quot;ggplot2&quot; and &quot;lattice&quot;.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>Statistical Analysis</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>R offers functions to conduct the vast majority of commonly used statistical procedures and the ability to write your own.</li>
+<li>Packages frequently offer improvements upon existing procedures or new functions entirely.</li>
+<li>Commonly used statistical function include:
+
+<ul>
+<li><code>cor()</code> - Correlations</li>
+<li><code>t.test()</code> - T-Tests</li>
+<li><code>aov()</code> - ANOVA</li>
+<li><code>lm()</code> - Linear Regression</li>
+<li><code>glm()</code> - Generalized Linear Models</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>Evaluation</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Please help the DSS improve our services and this tutorial by completing the following brief (anonymous) survey:</li>
+</ul>
+
+<h3><a href="http://tinyurl.com/DSSIntro">tinyurl.com/DSSIntro</a></h3>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>Additional Help</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>The Data Service Studio is available to answer R-related questions.
+
+<ul>
+<li>Email: <a href="mailto:data.service@nyu.edu">data.service@nyu.edu</a></li>
+<li>Phone: (212)-998-3434</li>
+<li>Location: 5<sup>th</sup> Floor of Bobst Library</li>
+</ul></li>
+<li>Attend the Intermediate Topics in R Tutorial.</li>
+<li>Please refer to the DSS&#39;s training page:</li>
+</ul>
+
+<p><a href="http://nyu.libguides.com/content.php?pid=38898&amp;sid=1554472">nyu.libguides.com/content.php?pid=38898&amp;sid=1554472</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+
+  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+<!-- Grab CDN jQuery, fall back to local if offline -->
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+<script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery-1.7.min.js"><\/script>')</script>
+<!-- Load Javascripts for Widgets -->
+<!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+</html>
