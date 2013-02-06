@@ -48,7 +48,7 @@ mode        : selfcontained # {standalone, draft}
 
 * R's default graphical user interface (GUI) is an interactive command line interface (CLI).
 
-~MISSING IMAGE~
+![R Console](http://i.imgur.com/0zVAH17.png)
 
 * Commands and expressions can be entered and evaluated line by line.
 * R GUIs are also available - [sciviews.org/_rgui/](http://sciviews.org/_rgui/)
@@ -68,7 +68,7 @@ mode        : selfcontained # {standalone, draft}
 
 ## Working Directories
 
-~MISSING IMAGE~
+![Folder Hierarchy](http://i.imgur.com/ryg2pk4.png)
 
 ---
 
