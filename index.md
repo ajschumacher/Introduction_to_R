@@ -13,8 +13,29 @@ license     : by-nc-sa
 github:
   user: ajschumacher
   repo: Introduction_to_R
----
+--- &twocol
 
+## NYU Data Services
+
+*** left
+
+* ArcGIS
+* SPSS
+* Data Finding
+* High Performance Computing
+* ATLAS.ti
+* MATLAB
+
+*** right
+
+* Data Management Planning
+* Qualtrics
+* R
+* Google Earth
+* SAS
+* Stata
+
+---
 
 ## Introduction to R
 
