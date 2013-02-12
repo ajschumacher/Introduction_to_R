@@ -1,13 +1,51 @@
 ---
 title       : Introduction to R
-subtitle    : 
-author      : NYU Data Services
-job         : 
+subtitle    : github.com/ajschumacher/Introduction_to_R
+author      : Aaron Schumacher
+job         : Senior Data Services Specialist
+biglogo        : data_services_logo.png
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : tomorrow      # 
+hitheme     : solarized_light      # {tomorrow}
 widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
+license     : by-nc-sa
+github:
+  user: ajschumacher
+  repo: Introduction_to_R
+---
+
+
+## Introduction to R
+
+* Why use R?
+* What is R?
+* Functions
+
+---
+
+<center>
+ <a style='border-bottom:none;' href='http://www.nytimes.com/2009/01/07/technology/business-computing/07program.html'>
+  <img src='assets/img/nytimes_article.png' height='600px' />
+ </a>
+</center>
+
+---
+
+<center>
+ <a style='border-bottom:none;' href='http://blog.kaggle.com/2011/11/27/kagglers-favorite-tools/'>
+  <img src='assets/img/kaggler_prefs.png' height='600px' />
+ </a>
+</center>
+
+---
+
+<center>
+ <a style='border-bottom:none;' href='https://www.facebook.com/notes/facebook-engineering/visualizing-friendships/469716398919'>
+  <img src='assets/img/facebook_map.jpg' width='950px' />
+ </a>
+</center>
+
 ---
 
 ## Outline

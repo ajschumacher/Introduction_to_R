@@ -4,7 +4,7 @@
   <title>Introduction to R</title>
   <meta charset="utf-8">
   <meta name="description" content="Introduction to R">
-  <meta name="author" content="NYU Data Services">
+  <meta name="author" content="Aaron Schumacher">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="libraries/frameworks/io2012/phone.css" 
     media="only screen and (max-device-width: 480px)" >
   <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
-  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/solarized_light.css" />
   <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
   <script data-main="libraries/frameworks/io2012/js/slides" 
     src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
@@ -25,6 +25,13 @@
   <slides class="layout-widescreen">
     
     <!-- LOGO SLIDE -->
+    <slide class="nobackground">
+      <article class="flexbox vcenter">
+        <span>
+          <img width='400px' src="assets/img/data_services_logo.png">
+        </span>
+      </article>
+    </slide>
     <!-- END LOGO SLIDE -->
     
 
@@ -33,13 +40,82 @@
     <slide class="title-slide segue nobackground">
       <hgroup class="auto-fadein">
         <h1>Introduction to R</h1>
-        <h2></h2>
-        <p>NYU Data Services<br/></p>
+        <h2>github.com/ajschumacher/Introduction_to_R</h2>
+        <p>Aaron Schumacher<br/>Senior Data Services Specialist</p>
       </hgroup>
-          </slide>
+      <a href="https://github.com/ajschumacher/Introduction_to_R/zipball/gh-pages" class="example">
+        Download
+      </a>
+      
+      <footer class = 'license'>
+        <a href='http://creativecommons.org/licenses/by-nc-sa/3.0/'>
+        <img width = '80px' src = 'http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png'>
+        </a>
+      </footer>
+    </slide>
 
     <!-- SLIDES -->
       <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Introduction to R</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Why use R?</li>
+<li>What is R?</li>
+<li>Functions</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    
+  </hgroup>
+  <article>
+    <p><center>
+ <a style='border-bottom:none;' href='http://www.nytimes.com/2009/01/07/technology/business-computing/07program.html'>
+  <img src='assets/img/nytimes_article.png' height='600px' />
+ </a>
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    
+  </hgroup>
+  <article>
+    <p><center>
+ <a style='border-bottom:none;' href='http://blog.kaggle.com/2011/11/27/kagglers-favorite-tools/'>
+  <img src='assets/img/kaggler_prefs.png' height='600px' />
+ </a>
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    
+  </hgroup>
+  <article>
+    <p><center>
+ <a style='border-bottom:none;' href='https://www.facebook.com/notes/facebook-engineering/visualizing-friendships/469716398919'>
+  <img src='assets/img/facebook_map.jpg' width='950px' />
+ </a>
+</center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-5" style="background:;">
   <hgroup>
     <h2>Outline</h2>
   </hgroup>
@@ -57,7 +133,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-2" style="background:;">
+      <slide class="" id="slide-6" style="background:;">
   <hgroup>
     <h2>What is R?</h2>
   </hgroup>
@@ -78,7 +154,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-3" style="background:;">
+      <slide class="" id="slide-7" style="background:;">
   <hgroup>
     <h2>Accessing R</h2>
   </hgroup>
@@ -103,7 +179,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-4" style="background:;">
+      <slide class="" id="slide-8" style="background:;">
   <hgroup>
     <h2>Interactive CLI</h2>
   </hgroup>
@@ -123,7 +199,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-5" style="background:;">
+      <slide class="" id="slide-9" style="background:;">
   <hgroup>
     <h2>Working Directories</h2>
   </hgroup>
@@ -144,7 +220,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-6" style="background:;">
+      <slide class="" id="slide-10" style="background:;">
   <hgroup>
     <h2>Working Directories</h2>
   </hgroup>
@@ -155,7 +231,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-7" style="background:;">
+      <slide class="" id="slide-11" style="background:;">
   <hgroup>
     <h2>Writing R Programs</h2>
   </hgroup>
@@ -177,7 +253,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-8" style="background:;">
+      <slide class="" id="slide-12" style="background:;">
   <hgroup>
     <h2>Using Functions</h2>
   </hgroup>
@@ -210,7 +286,7 @@ sum(c(1, 2, 3, NA), rm.na = TRUE)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-9" style="background:;">
+      <slide class="" id="slide-13" style="background:;">
   <hgroup>
     <h2>Packages</h2>
   </hgroup>
@@ -237,7 +313,7 @@ sum(c(1, 2, 3, NA), rm.na = TRUE)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-10" style="background:;">
+      <slide class="" id="slide-14" style="background:;">
   <hgroup>
     <h2>Objects</h2>
   </hgroup>
@@ -262,7 +338,7 @@ var2 = &quot;a&quot;
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-11" style="background:;">
+      <slide class="" id="slide-15" style="background:;">
   <hgroup>
     <h2>Vectors</h2>
   </hgroup>
@@ -295,7 +371,7 @@ var2 = &quot;a&quot;
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-12" style="background:;">
+      <slide class="" id="slide-16" style="background:;">
   <hgroup>
     <h2>Workspace</h2>
   </hgroup>
@@ -312,7 +388,7 @@ var2 = &quot;a&quot;
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-13" style="background:;">
+      <slide class="" id="slide-17" style="background:;">
   <hgroup>
     <h2>Data Frames</h2>
   </hgroup>
@@ -339,7 +415,7 @@ data$score
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-14" style="background:;">
+      <slide class="" id="slide-18" style="background:;">
   <hgroup>
     <h2>Importing Datasets</h2>
   </hgroup>
@@ -357,7 +433,7 @@ data$score
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-15" style="background:;">
+      <slide class="" id="slide-19" style="background:;">
   <hgroup>
     <h2>Editing Data</h2>
   </hgroup>
@@ -389,7 +465,7 @@ data$score
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-16" style="background:;">
+      <slide class="" id="slide-20" style="background:;">
   <hgroup>
     <h2>Recoding &amp; Computing Variables</h2>
   </hgroup>
@@ -415,7 +491,7 @@ data$health = mean(data[,c(“health1”, “health2”, … , “health6”)])
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-17" style="background:;">
+      <slide class="" id="slide-21" style="background:;">
   <hgroup>
     <h2>Creating Subsets</h2>
   </hgroup>
@@ -445,7 +521,7 @@ data$health = mean(data[,c(“health1”, “health2”, … , “health6”)])
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-18" style="background:;">
+      <slide class="" id="slide-22" style="background:;">
   <hgroup>
     <h2>Descriptive Statistics &amp; Graphics</h2>
   </hgroup>
@@ -465,7 +541,7 @@ data$health = mean(data[,c(“health1”, “health2”, … , “health6”)])
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-19" style="background:;">
+      <slide class="" id="slide-23" style="background:;">
   <hgroup>
     <h2>Statistical Analysis</h2>
   </hgroup>
@@ -488,7 +564,7 @@ data$health = mean(data[,c(“health1”, “health2”, … , “health6”)])
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-20" style="background:;">
+      <slide class="" id="slide-24" style="background:;">
   <hgroup>
     <h2>Evaluation</h2>
   </hgroup>
@@ -503,7 +579,7 @@ data$health = mean(data[,c(“health1”, “health2”, … , “health6”)])
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-21" style="background:;">
+      <slide class="" id="slide-25" style="background:;">
   <hgroup>
     <h2>Additional Help</h2>
   </hgroup>
