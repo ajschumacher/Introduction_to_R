@@ -1,6 +1,6 @@
 ---
 title       : Introduction to R
-subtitle    : github.com/ajschumacher/Introduction_to_R
+subtitle    : bit.ly/NYUintroR
 author      : Aaron Schumacher
 job         : Senior Data Services Specialist
 biglogo        : data_services_logo.png
