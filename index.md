@@ -87,6 +87,14 @@ github:
 ---
 
 <center>
+ <a style='border-bottom:none;' href='http://csgillespie.files.wordpress.com/2010/12/gastrostomy.png'>
+  <img src='http://csgillespie.files.wordpress.com/2010/12/gastrostomy.png' height='600px' />
+ </a>
+</center>
+
+---
+
+<center>
   <img src='assets/img/packagecounts.png' width='950px' />
 </center>
 
@@ -98,6 +106,7 @@ github:
 * It's not SAS/Stata/SPSS/etc.
 * It's not C.
 * Defaults to in-memory.
+* Often not best for building interactives.
 
 ---
 
