@@ -15,25 +15,28 @@ github:
   repo: Introduction_to_R
 --- &twocol
 
-## NYU Data Services
+## [NYU Data Services](http://bit.ly/nyudataservices)
 
 *** left
 
-* ArcGIS
-* SPSS
-* Data Finding
-* High Performance Computing
-* ATLAS.ti
-* MATLAB
+* [Computer lab, Bobst 5](http://nyu.libguides.com/content.php?pid=38898&sid=1496756)
+* [Workshops/Tutorials](http://bit.ly/datatutorials)
+* [Individual consultations](http://bit.ly/datameeting)
 
 *** right
 
-* Data Management Planning
-* Qualtrics
-* R
+* ArcGIS
 * Google Earth
-* SAS
+* SPSS
 * Stata
+* SAS
+* R
+* MATLAB
+* ATLAS.ti
+* Qualtrics Surveys
+* High Performance Computing
+* Data Finding
+* Data Management Planning
 
 ---
 
@@ -87,7 +90,7 @@ github:
 ---
 
 <center>
- <a style='border-bottom:none;' href='http://csgillespie.files.wordpress.com/2010/12/gastrostomy.png'>
+ <a style='border-bottom:none;' href='http://csgillespie.wordpress.com/2010/12/08/new-paper-survival-analysis/'>
   <img src='http://csgillespie.files.wordpress.com/2010/12/gastrostomy.png' height='600px' />
  </a>
 </center>
