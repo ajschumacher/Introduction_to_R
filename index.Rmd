@@ -45,6 +45,15 @@ github:
 
 ---
 
+## Why use R?
+
+* Open Source / Free
+* Increasingly popular
+* Powerful and Extensible
+* Makes reproducible research easy, convenient and diverse visualization options, more statistics than you can shake a stick at, excellent for exploratory data analysis, many support options, often first to support cutting-edge techniques, ...
+
+---
+
 <center>
  <a style='border-bottom:none;' href='http://www.nytimes.com/2009/01/07/technology/business-computing/07program.html'>
   <img src='assets/img/nytimes_article.png' height='600px' />
@@ -62,10 +71,33 @@ github:
 ---
 
 <center>
+ <a style='border-bottom:none;' href='http://rpubs.com/bbolker/3153'>
+  <img src='assets/img/reproducible.png' height='600px' />
+ </a>
+</center>
+
+---
+
+<center>
  <a style='border-bottom:none;' href='https://www.facebook.com/notes/facebook-engineering/visualizing-friendships/469716398919'>
   <img src='assets/img/facebook_map.jpg' width='950px' />
  </a>
 </center>
+
+---
+
+<center>
+  <img src='assets/img/packagecounts.png' width='950px' />
+</center>
+
+---
+
+## Why not use R?
+
+* It's not Excel.
+* It's not SAS/Stata/SPSS/etc.
+* It's not C.
+* Defaults to in-memory.
 
 ---
 
