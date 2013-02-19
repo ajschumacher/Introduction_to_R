@@ -17,6 +17,9 @@ github:
 
 ## [NYU Data Services](http://bit.ly/nyudataservices)
 
+
+
+
 *** left
 
 * [Computer lab, Bobst 5](http://nyu.libguides.com/content.php?pid=38898&sid=1496756)
@@ -161,6 +164,29 @@ If you don't include parenthes, R will try to return the function itself.
 ```r
 help
 ```
+
+
+---
+
+## More!
+
+There are many packages available on the Comprehensive R Archive Network ([CRAN](http://cran.r-project.org/)) which can be easily installed and loaded into R. One very popular package is `ggplot2`, a graphing library.
+
+
+```r
+install.packages("ggplot2")  # Do this once per machine.
+library(ggplot2)  # Do this once per session.
+```
+
+
+After installing and loading a package, you can use the functions it provides.
+
+
+```r
+qplot(x = carat, y = price, color = cut, data = diamonds) + theme_bw()
+```
+
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
 
 
 ---
