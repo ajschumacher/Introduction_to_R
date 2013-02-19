@@ -239,8 +239,8 @@ There are many packages available on the Comprehensive R Archive Network ([CRAN]
 
 
 ```r
-install.packages("ggplot2")  # Do this once per machine.
-library(ggplot2)  # Do this once per session.
+install.packages('ggplot2')  # Do this once per machine.
+library(ggplot2)             # Do this once per session.
 ```
 
 

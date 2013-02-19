@@ -220,7 +220,7 @@ c(9, 7, TRUE, FALSE, "cow")
 
 There are many packages available on the Comprehensive R Archive Network ([CRAN](http://cran.r-project.org/)) which can be easily installed and loaded into R. One very popular package is `ggplot2`, a graphing library.
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, tidy=FALSE}
 install.packages('ggplot2')  # Do this once per machine.
 library(ggplot2)             # Do this once per session.
 ```
