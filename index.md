@@ -41,9 +41,11 @@ github:
 * Data Finding
 * Data Management Planning
 
----
+--- &twocol
 
 ## Introduction to R
+
+*** left
 
 * Why use R?
 * What is R / RStudio?
@@ -53,6 +55,12 @@ github:
 * Simple statistics
 * Base graphics
 * More!
+
+*** right
+
+* Please ask questions!
+* Please fill out our [survey](http://bit.ly/NYUintroRsurvey) afterward!
+    * Even if you have to leave early!
 
 ---
 
@@ -159,10 +167,67 @@ help(getwd)
 ```
 
 
-If you don't include parenthes, R will try to return the function itself.
+If you don't include parentheses, R will try to give you the function itself.
 
 ```r
 help
+```
+
+
+---
+
+## Everything is a function.
+
+Even things that don't look like functions are functions.
+
+
+```r
+c(5 + 7 == "+"(5, 7),       #  Even arithmetic is done by functions.
+  all(1:10 == ":"(1, 10)))  #  Another useful 'infix' function.
+```
+
+```
+## [1] TRUE TRUE
+```
+
+
+Try this:
+
+
+```r
+?"<-"       #  '?' is shorthand for 'help()'
+"<-"(x, 5)  #  This will work.
+y <- 8      #  This is what you'll always do.
+
+# Okay, comments aren't functions.
+```
+
+
+---
+
+## Everything is a vector. Vector of what?
+
+
+```r
+class(TRUE); class(T); class(FALSE); class(F);              #  logical
+class(1:10); class(42L);                                    #  integer
+class(42); class(3.7); class(5e7); class(1/89)              #  numeric
+class("Aaron"); class("cow"); class("123"); class("TRUE")   #  character
+
+# And then there are these guys...
+class(factor(c("red", "green", "blue")))                    #  factor
+class(factor(c("medium", "small", "small", "large"),
+             levels=c("small", "medium", "large"),
+             ordered=TRUE))                                 #  ordered factor
+```
+
+
+Vectors have exactly one class, and are joined by the `c()` function.
+
+
+```r
+c(9, 7, TRUE, FALSE)
+c(9, 7, TRUE, FALSE, "cow")
 ```
 
 
@@ -186,7 +251,7 @@ After installing and loading a package, you can use the functions it provides.
 qplot(x = carat, y = price, color = cut, data = diamonds) + theme_bw()
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
 
 
 ---

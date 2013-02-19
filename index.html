@@ -96,7 +96,9 @@
     <h2>Introduction to R</h2>
   </hgroup>
   <article>
-    <ul>
+    
+<div style='float:left;width:48%;' class='centered'>
+  <ul>
 <li>Why use R?</li>
 <li>What is R / RStudio?</li>
 <li>Everything is a function.</li>
@@ -107,6 +109,19 @@
 <li>More!</li>
 </ul>
 
+
+</div>
+<div style='float:right;width:48%;'>
+  <ul>
+<li>Please ask questions!</li>
+<li>Please fill out our <a href="http://bit.ly/NYUintroRsurvey">survey</a> afterward!
+
+<ul>
+<li>Even if you have to leave early!</li>
+</ul></li>
+</ul>
+
+</div>
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -282,7 +297,7 @@
 help(getwd)
 </code></pre>
 
-<p>If you don&#39;t include parenthes, R will try to return the function itself.</p>
+<p>If you don&#39;t include parentheses, R will try to give you the function itself.</p>
 
 <pre><code class="r">help
 </code></pre>
@@ -292,6 +307,60 @@ help(getwd)
 </slide>
 
       <slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>Everything is a function.</h2>
+  </hgroup>
+  <article>
+    <p>Even things that don&#39;t look like functions are functions.</p>
+
+<pre><code class="r">c(5 + 7 == &quot;+&quot;(5, 7),       #  Even arithmetic is done by functions.
+  all(1:10 == &quot;:&quot;(1, 10)))  #  Another useful &#39;infix&#39; function.
+</code></pre>
+
+<pre><code>## [1] TRUE TRUE
+</code></pre>
+
+<p>Try this:</p>
+
+<pre><code class="r">?&quot;&lt;-&quot;       #  &#39;?&#39; is shorthand for &#39;help()&#39;
+&quot;&lt;-&quot;(x, 5)  #  This will work.
+y &lt;- 8      #  This is what you&#39;ll always do.
+
+# Okay, comments aren&#39;t functions.
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Everything is a vector. Vector of what?</h2>
+  </hgroup>
+  <article>
+    <pre><code class="r">class(TRUE); class(T); class(FALSE); class(F);              #  logical
+class(1:10); class(42L);                                    #  integer
+class(42); class(3.7); class(5e7); class(1/89)              #  numeric
+class(&quot;Aaron&quot;); class(&quot;cow&quot;); class(&quot;123&quot;); class(&quot;TRUE&quot;)   #  character
+
+# And then there are these guys...
+class(factor(c(&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;)))                    #  factor
+class(factor(c(&quot;medium&quot;, &quot;small&quot;, &quot;small&quot;, &quot;large&quot;),
+             levels=c(&quot;small&quot;, &quot;medium&quot;, &quot;large&quot;),
+             ordered=TRUE))                                 #  ordered factor
+</code></pre>
+
+<p>Vectors have exactly one class, and are joined by the <code>c()</code> function.</p>
+
+<pre><code class="r">c(9, 7, TRUE, FALSE)
+c(9, 7, TRUE, FALSE, &quot;cow&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-16" style="background:;">
   <hgroup>
     <h2>More!</h2>
   </hgroup>
@@ -307,13 +376,13 @@ library(ggplot2)  # Do this once per session.
 <pre><code class="r">qplot(x = carat, y = price, color = cut, data = diamonds) + theme_bw()
 </code></pre>
 
-<p><img src="figure/unnamed-chunk-5.png" alt="plot of chunk unnamed-chunk-5"> </p>
+<p><img src="figure/unnamed-chunk-9.png" alt="plot of chunk unnamed-chunk-9"> </p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-15" style="background:;">
+      <slide class="" id="slide-17" style="background:;">
   <hgroup>
     <h2>Working Directories</h2>
   </hgroup>
@@ -334,7 +403,7 @@ library(ggplot2)  # Do this once per session.
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-16" style="background:;">
+      <slide class="" id="slide-18" style="background:;">
   <hgroup>
     <h2>Writing R Programs</h2>
   </hgroup>
@@ -356,7 +425,7 @@ library(ggplot2)  # Do this once per session.
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-17" style="background:;">
+      <slide class="" id="slide-19" style="background:;">
   <hgroup>
     <h2>Using Functions</h2>
   </hgroup>
@@ -389,7 +458,7 @@ sum(c(1, 2, 3, NA), rm.na = TRUE)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-18" style="background:;">
+      <slide class="" id="slide-20" style="background:;">
   <hgroup>
     <h2>Packages</h2>
   </hgroup>
@@ -416,7 +485,7 @@ sum(c(1, 2, 3, NA), rm.na = TRUE)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-19" style="background:;">
+      <slide class="" id="slide-21" style="background:;">
   <hgroup>
     <h2>Objects</h2>
   </hgroup>
@@ -441,7 +510,7 @@ var2 = &quot;a&quot;
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-20" style="background:;">
+      <slide class="" id="slide-22" style="background:;">
   <hgroup>
     <h2>Vectors</h2>
   </hgroup>
@@ -474,7 +543,7 @@ var2 = &quot;a&quot;
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-21" style="background:;">
+      <slide class="" id="slide-23" style="background:;">
   <hgroup>
     <h2>Workspace</h2>
   </hgroup>
@@ -491,7 +560,7 @@ var2 = &quot;a&quot;
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-22" style="background:;">
+      <slide class="" id="slide-24" style="background:;">
   <hgroup>
     <h2>Data Frames</h2>
   </hgroup>
@@ -518,7 +587,7 @@ data$score
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-23" style="background:;">
+      <slide class="" id="slide-25" style="background:;">
   <hgroup>
     <h2>Importing Datasets</h2>
   </hgroup>
@@ -536,7 +605,7 @@ data$score
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-24" style="background:;">
+      <slide class="" id="slide-26" style="background:;">
   <hgroup>
     <h2>Editing Data</h2>
   </hgroup>
@@ -568,7 +637,7 @@ data$score
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-25" style="background:;">
+      <slide class="" id="slide-27" style="background:;">
   <hgroup>
     <h2>Recoding &amp; Computing Variables</h2>
   </hgroup>
@@ -594,7 +663,7 @@ data$health = mean(data[,c(“health1”, “health2”, … , “health6”)])
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-26" style="background:;">
+      <slide class="" id="slide-28" style="background:;">
   <hgroup>
     <h2>Creating Subsets</h2>
   </hgroup>
@@ -624,7 +693,7 @@ data$health = mean(data[,c(“health1”, “health2”, … , “health6”)])
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-27" style="background:;">
+      <slide class="" id="slide-29" style="background:;">
   <hgroup>
     <h2>Descriptive Statistics &amp; Graphics</h2>
   </hgroup>
@@ -644,7 +713,7 @@ data$health = mean(data[,c(“health1”, “health2”, … , “health6”)])
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-28" style="background:;">
+      <slide class="" id="slide-30" style="background:;">
   <hgroup>
     <h2>Statistical Analysis</h2>
   </hgroup>
@@ -667,7 +736,7 @@ data$health = mean(data[,c(“health1”, “health2”, … , “health6”)])
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-29" style="background:;">
+      <slide class="" id="slide-31" style="background:;">
   <hgroup>
     <h2>Evaluation</h2>
   </hgroup>
@@ -682,7 +751,7 @@ data$health = mean(data[,c(“health1”, “health2”, … , “health6”)])
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-30" style="background:;">
+      <slide class="" id="slide-32" style="background:;">
   <hgroup>
     <h2>Additional Help</h2>
   </hgroup>
