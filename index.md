@@ -6,7 +6,7 @@ job         : Senior Data Services Specialist
 biglogo        : data_services_logo.png
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : solarized_light      # {tomorrow}
+hitheme     : tomorrow      # {tomorrow, solarized_light}
 widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 license     : by-nc-sa
@@ -43,8 +43,13 @@ github:
 ## Introduction to R
 
 * Why use R?
-* What is R?
-* Functions
+* What is R / RStudio?
+* Everything is a function.
+* Everything is a vector.
+* Super-vectors
+* Simple statistics
+* Base graphics
+* More!
 
 ---
 
@@ -53,7 +58,13 @@ github:
 * Open Source / Free
 * Increasingly popular
 * Powerful and Extensible
-* Makes reproducible research easy, convenient and diverse visualization options, more statistics than you can shake a stick at, excellent for exploratory data analysis, many support options, often first to support cutting-edge techniques, ...
+* Makes reproducible research easy, convenient and diverse visualization options, more statistics than you can shake a stick at, excellent for exploratory data analysis, many support options, often first for cutting-edge techniques, ...
+* Available:
+    * Download: [R](http://cran.r-project.org/mirrors.html) / [RStudio](http://www.rstudio.com/ide/download/)
+    * Data Services lab, fifth floor Bobst
+    * Most ITS labs
+    * Virtual Computing Lab ([VCL](https://vcl.nyu.edu/)) (for students)
+    * High Performance Computing ([HPC](https://wikis.nyu.edu/display/NYUHPC/High+Performance+Computing+at+NYU)) clusters (requires account)
 
 ---
 
@@ -113,48 +124,45 @@ github:
 
 ---
 
-## Outline
-
-* Overview of R 
-* Getting Started with R 
-* Managing Data in R 
-* Descriptive Statistics 
-* Basic Analysis 
-* Additional Help 
-
----
-
 ## What is R?
 
-* A programming language designed for statistical computing and geographical representations of data.
-* Comparable tools include: MATLAB, Python, SAS, Stata and SPSS
-* Open source:
-    * Free to download and use
-    * Source Code is available
-    * User Input
+<center><img src="assets/img/what_is_R.png" height=540 /></center>
 
 ---
 
-## Accessing R
+## What is RStudio?
 
-* At NYU
-    * DSS Workstations (5<sup>th</sup> floor of Bobst Library)
-    * Most ITS Labs
-* At Home
-    * Free download/install: [cran.r-project.org](http://cran.r-project.org/)
-    * Virtual Computing Lab (students only)
-    * HPC Clusters (required account)
+An Integrated Development Environment (IDE) for R. Check it out!
+
+<center><img src="assets/img/RStudio.png" height=540 /></center>
 
 ---
 
-## Interactive CLI
+## Everything is a function.
 
-* R's default graphical user interface (GUI) is an interactive command line interface (CLI).
+Anything you want to do in R is done by telling R to run a function.
 
-![R Console](http://i.imgur.com/0zVAH17.png)
+To run a function with no arguments, follow its name with parentheses.
 
-* Commands and expressions can be entered and evaluated line by line.
-* R GUIs are also available - [sciviews.org/_rgui/](http://sciviews.org/_rgui/)
+```r
+help()
+```
+
+
+Arguments are passed inside the parentheses. Arguments are usually named, but names can be omitted if it's unambiguous.
+
+```r
+help(topic = getwd)
+help(getwd)
+```
+
+
+If you don't include parenthes, R will try to return the function itself.
+
+```r
+help
+```
+
 
 ---
 
@@ -166,12 +174,6 @@ github:
     * Moving up a folder is denoted by two periods: `..`
 * Check the current working directory: `getwd()`
 * Change the working directory: `setwd("<path>")`
-
----
-
-## Working Directories
-
-![Folder Hierarchy](http://i.imgur.com/ryg2pk4.png)
 
 ---
 
