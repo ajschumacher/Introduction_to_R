@@ -133,8 +133,7 @@ github:
 ## What is RStudio?
 
 An Integrated Development Environment (IDE) for R. Check it out!
-
-<center><img src="assets/img/RStudio.png" height=540 /></center>
+<center><img src="assets/img/RStudio.png" height=500 /></center>
 
 ---
 
