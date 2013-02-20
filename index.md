@@ -51,7 +51,7 @@ github:
 * What is R / RStudio?
 * Everything is a function.
 * Everything is a vector.
-* Super-vectors
+* ... Data Frames!
 * Some statistics
 * Base graphics
 * More!
@@ -60,7 +60,6 @@ github:
 
 * Please ask questions!
 * Please fill out our [survey](http://bit.ly/NYUintroRsurvey) afterward!
-    * Even if you have to leave early!
 
 ---
 
@@ -451,7 +450,7 @@ sum(my.vector < 4)  #  Alternative: length(my.vector[my.vector < 4])
 
 ---
 
-## Super-vectors
+## ... Data Frames!
 
 * Matrices are vectors with a number of columns and a number of rows, which should all jive.
     * Multiplication is element-wise for `*`, matrix-wise for `%*%`.
