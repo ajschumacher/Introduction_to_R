@@ -53,7 +53,7 @@ library(ggplot2)
 * Everything is a function.
 * Everything is a vector.
 * Super-vectors
-* Simple statistics
+* Some statistics
 * Base graphics
 * More!
 
@@ -324,7 +324,7 @@ sum(my.vector < 4)  #  Alternative: length(my.vector[my.vector < 4])
     * Multiplication is element-wise for `*`, matrix-wise for `%*%`.
 * Lists are like vectors where each element could be itself a vector.
     * Compare `c(1:3, 4)` with `list(1:3, 4)`.
-* Data frames are lists with every vector equal length, and you get row names.
+* Data frames are lists with every vector equal length, and you get row names and column names.
 
 ```{r}
 (my.data <- read.csv('http://bit.ly/NYUdataset'))
@@ -332,7 +332,7 @@ sum(my.vector < 4)  #  Alternative: length(my.vector[my.vector < 4])
 
 ---
 
-## Investigating a list or data frame
+## Working with data frames
 
 ```{r, eval=FALSE}
 str(my.data)
@@ -348,10 +348,48 @@ my.data[['gender']]
 with(my.data, gender)
 ```
 
-You can subset using `[column(s), row(s)]`, both parts just like a single vector.
+You can subset using `[column(s), row(s)]`, both parts just like selecting from a single vector.
 
 ```{r}
 my.data[2, 'age']
+```
+
+---
+
+## Some Statistics
+
+```{r, eval=FALSE}
+mean(my.data$age)
+sd(my.data$age)
+cor(my.data[5:10])
+table(my.data$gender)
+table(my.data$health3, my.data$gender)
+chisq.test(my.data$health3, my.data$gender)
+with(my.data, t.test(health1, health2))
+my.model <- lm(health1 ~ age + gender, data=my.data)
+summary(my.model)
+confint(my.model)
+aov(my.model)
+aov(health1 ~ age + gender, data=my.data)
+```
+
+---
+
+## Base graphics
+
+```{r, eval=FALSE}
+with(my.data, barplot(table(gender)))
+plot(my.data$age)
+hist(my.data$age)
+hist(my.data$age, col='cornflowerblue', breaks=20, xlab='Age', main='Participants')
+boxplot(my.data$age)
+with(my.data, boxplot(age ~ gender))
+with(my.data, plot(health1, health2))
+with(my.data, plot(health1, health2, pch=19))
+with(my.data, plot(jitter(health1), jitter(health2)))
+with(my.data, plot(jitter(health1), jitter(health2), pch=20, col=rainbow(15), xlab='Monkeys eaten', ylab='Number of cheeses', main='Absolute Power (Ninjas)'))
+pairs(my.data[5:10])
+plot(my.model)
 ```
 
 ---
@@ -378,226 +416,3 @@ qplot(x=carat, y=price, color=cut, data=diamonds) + theme_bw()
 <center>
 ### [http://bit.ly/NYUintroRsurvey](http://bit.ly/NYUintroRsurvey)
 </center>
-
----
-
-## Working Directories
-
-* A working directory is the current file directory used reference importing and exporting files to/from R.
-* Paths are used to reference locations outside of the current directory.
-    * Folders are denoted by forward slashes: `/`
-    * Moving up a folder is denoted by two periods: `..`
-* Check the current working directory: `getwd()`
-* Change the working directory: `setwd("<path>")`
-
----
-
-## Writing R Programs
-
-* R scripts should be written and saved instead of interactively using R's CLI.
-* Some advantages to writing R scripts include:
-    * Possibility to reuse code
-    * Allows for editing of code
-    * Easier to write and read complex expressions
-* Comments can be added to a script with "`#`"
-* Programs can be written in any text editor, including R's document editor, and called using the `source()` function.
-
----
-
-## Using Functions
-
-* Functions allow users to easily perform complex tasks using custom input and specifications.
-* To call a function type its function name followed by the desired set argument(s) enclosed in parenthesis.
-
-```{r, eval=FALSE}
-sqrt(4^2)
-```
-* Parenthesis are still required when a function takes no arguments.
-```{r, eval=FALSE}
-getwd()
-```
-* The most important function is likely `help()`.
-* Take note of the default arguments for each function.
-```{r, eval=FALSE}
-sum(c(1,2,3,NA))
-sum(c(1,2,3,NA),rm.na=TRUE)
-```
-
----
-
-## Packages
-
-* Collections of user-created functions that are tested by and freely distributed to the R community.
-* Users submit packages on a regular basis (4063 available as of 9/2012).
-* Using a package requires a 3 steps:
-
-1\. Install the package on your local machine (note: only needs to be done once per machine)
-```{r, eval=FALSE}
-install.packages("<package name>")
-```
-2\. Load the install package (note: needs to be done each time R is opened)
-```{r, eval=FALSE}
-library(<package name>)
-```
-3\. Use the packages' objects
-
----
-
-## Objects
-
-* Objects are symbolic names that represent some form of information.
-* In R there is no need to define an object's type upon declaration.
-```{r, eval=FALSE}
-var1 = 5
-var2 = "a"
-```
-* R utilizes generic functions based upon an object's class. Use the `class()` function to check an object's class.
-```{r, eval=FALSE}
-class(var1)
-```
-
----
-
-## Vectors
-
-* Vectors are basically one-dimensional arrays that hold one type, or class, of information.
-* The `c()` function can be used to combine elements into a vector.
-```{r,results='hide'}
-v1 = c("a","b","c","d")
-```
-* Elements of a vector can be referenced via brackets and their corresponding index, which ranges from 1 to the number of elements in the vector.
-```{r}
-v1[2]
-v1[c(4,1)]
-```
-
----
-
-## Workspace
-
-* R's workspace contains all currently accessible objects.
-* The workspace can be viewed with the `ls()` function.
-* Objects can be deleted with the `rm()` function.
-* the entire workspace can be saved to a .Rdata file with the `save.image()` function.
-* An entire workspace can be loaded, and used later, with the `load()` function.
-
----
-
-## Data Frames
-
-* R's class for tabular datasets is data frame.
-* The `data.frame()` function can be used convert a set of vectors of equal length, but potentially different classes, into a data fram.
-* Data frame elements can be referenced using brackets and indices, like so: `<dataframe>[<row>,<column>]`.
-* Columns also have names that can be referenced vis "$".
-```{r, eval=FALSE}
-names(data)
-data$score
-```
-* Since one column is a vector, elements of a column can still be referenced with brackets and an index.
-```{r, eval=FALSE}
-data$score[2]
-```
-
----
-
-## Importing Datasets
-
-* Datasets of virtually any format can be imported into R, however some formats may require packages.
-* Raw data can be read in using functions like `read.csv()`, `read.table()` or `scan()`, and the "foreign" package offers a number of functions that can import datasets from other statistically packages, including SPSS, SAS, and Stata.
-* Remember that calling a function does not automatically save the result to an object, so make sure to save the imported dataset to specified object.
-```{r, eval=FALSE}
-data = read.csv(file="<rtut.csv>")
-```
-
----
-
-## Editing Data
-
-* Raw data can manually be edited by referencing the elements you would like to change and their desired new value(s).
-```{r, eval=FALSE}
-data$id[1] = -99
-```
-* The `edit()` function can also be used to edit data in a spreadsheet-like fashion.
-```{r, eval=FALSE}
-data = edit(data)
-```
-* Variables may also need to be edited.
-    * Check the class of each variable via `str()` or `class()`.
-    * Use functions to update classes, such as `as.factor()`.
-
----
-
-## Recoding & Computing Variables
-
-* Variables can be recoded in a number of ways, particularly the `recode()` function in the "car" package.
-* Recoded variables can either be new or replace already existing variables depending on the object that is stored in.
-```{r, eval=FALSE}
-data$health2 = recode(data$health2, "1=5;2=4;3=3;4=2;5=1")
-data$health2_R = recode(data$health2, "1=5;2=4;3=3;4=2;5=1")
-```
-* Variables can be created referencing a new variable name in a data frame.
-```{r, eval=FALSE}
-<dataframe>$<new name> = <vector of desired information>
-data$health = mean(data[,c(“health1”, “health2”, … , “health6”)])
-```
-
----
-
-## Creating Subsets
-
-* Subsets may be created by manually referencing elements.
-```{r, eval=FALSE}
-sub1 <- data[2:5,c("age","health")]
-```
-* The `which()` function can also be used to select element indices based upon a conditional statement.
-```{r, eval=FALSE}
-sub2 <- data[which(data$age > 40),c("age","health")]
-```
-* The `subset()` function can also be used and is likely the best choice for more complex subsets.
-```{r, eval=FALSE}
-sub3 <- subset(data, age > 40, select=c("age","health"))
-```
-
----
-
-## Descriptive Statistics & Graphics
-
-* R offers a great deal of descriptive statistics and graphics applications via base functions and in numerous packages.
-* Some commonly used functions include:
-    * Descriptives: `summary()`, `table()`, `mean()`, and `sd()`
-    * Graphics: `plot()`, `boxplot()` and `barplot()`
-* Some commonly used graphics packages include "ggplot2" and "lattice".
-
----
-
-## Statistical Analysis
-
-* R offers functions to conduct the vast majority of commonly used statistical procedures and the ability to write your own.
-* Packages frequently offer improvements upon existing procedures or new functions entirely.
-* Commonly used statistical function include:
-    * `cor()` - Correlations
-    * `t.test()` - T-Tests
-    * `aov()` - ANOVA
-    * `lm()` - Linear Regression
-    * `glm()` - Generalized Linear Models
-
----
-
-## Evaluation
-
-* Please help the DSS improve our services and this tutorial by completing the following brief (anonymous) survey:
-
-### [tinyurl.com/DSSIntro](http://tinyurl.com/DSSIntro)
-
----
-
-## Additional Help
-
-* The Data Service Studio is available to answer R-related questions.
-    * Email: [data.service@nyu.edu](mailto:data.service@nyu.edu)
-    * Phone: (212)-998-3434
-    * Location: 5<sup>th</sup> Floor of Bobst Library
-* Attend the Intermediate Topics in R Tutorial.
-* Please refer to the DSS's training page:
-
-[nyu.libguides.com/content.php?pid=38898&sid=1554472](http://nyu.libguides.com/content.php?pid=38898&sid=1554472)
