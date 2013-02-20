@@ -246,6 +246,7 @@
   <article>
     <ul>
 <li>It&#39;s not Excel.</li>
+<li>It&#39;s not Mathematica/Maple/etc.</li>
 <li>It&#39;s not SAS/Stata/SPSS/etc.</li>
 <li>It&#39;s not C.</li>
 <li>Defaults to in-memory.</li>
@@ -300,6 +301,7 @@ help(getwd)
 <p>If you don&#39;t include parentheses, R will try to give you the function itself.</p>
 
 <pre><code class="r">help
+help.search
 </code></pre>
 
   </article>
@@ -335,6 +337,32 @@ y &lt;- 8      #  This is what you&#39;ll always do.
 
       <slide class="" id="slide-15" style="background:;">
   <hgroup>
+    <h2>Everything is a vector.</h2>
+  </hgroup>
+  <article>
+    <pre><code class="r">42:100
+</code></pre>
+
+<pre><code>##  [1]  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58
+## [18]  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75
+## [35]  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92
+## [52]  93  94  95  96  97  98  99 100
+</code></pre>
+
+<p>The numbers in brackets tell you the position in the vector at the start of the line. So:</p>
+
+<pre><code class="r">42
+</code></pre>
+
+<pre><code>## [1] 42
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-16" style="background:;">
+  <hgroup>
     <h2>Everything is a vector. Vector of what?</h2>
   </hgroup>
   <article>
@@ -356,11 +384,257 @@ class(factor(c(&quot;medium&quot;, &quot;small&quot;, &quot;small&quot;, &quot;l
 c(9, 7, TRUE, FALSE, &quot;cow&quot;)
 </code></pre>
 
+<p>Other things: <code>NA</code> (missing), <code>NULL</code> (not a thing), <code>NaN</code> (<code>sqrt(-1)</code>), <code>Inf</code> (<code>1/0</code>).</p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-16" style="background:;">
+      <slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Vectorized Operations and Recycling</h2>
+  </hgroup>
+  <article>
+    <p>Most operations happen element-wise.</p>
+
+<pre><code class="r">c(1, 2, 3, 4) + c(100, 1000, 10000, 10000)
+</code></pre>
+
+<pre><code>## [1]   101  1002 10003 10004
+</code></pre>
+
+<p>If the vectors have different lengths, they shorter one gets &#39;recycled&#39;.</p>
+
+<pre><code class="r">c(1, 2, 3, 4) + c(100, 1000)
+</code></pre>
+
+<pre><code>## [1]  101 1002  103 1004
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Vectorized Operations and Recycling</h2>
+  </hgroup>
+  <article>
+    <p>What will happen with these?</p>
+
+<pre><code class="r">c(1, 2) * c(4, 5, 6)
+
+1 + 1:10
+
+1:10 / 10
+
+1:10 &lt; 5
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>Vectorized Operations and Recycling</h2>
+  </hgroup>
+  <article>
+    <pre><code class="r">c(1, 2) * c(4, 5, 6)
+</code></pre>
+
+<pre><code>## Warning: longer object length is not a multiple of shorter object length
+</code></pre>
+
+<pre><code>## [1]  4 10  6
+</code></pre>
+
+<pre><code class="r">1 + 1:10
+</code></pre>
+
+<pre><code>##  [1]  2  3  4  5  6  7  8  9 10 11
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>Vectorized Operations and Recycling</h2>
+  </hgroup>
+  <article>
+    <pre><code class="r">1:10 / 10
+</code></pre>
+
+<pre><code>##  [1] 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+</code></pre>
+
+<pre><code class="r">1:10 &lt; 5
+</code></pre>
+
+<pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>Things can have names.</h2>
+  </hgroup>
+  <article>
+    <pre><code class="r">my.vector &lt;- 1:5
+my.vector
+</code></pre>
+
+<pre><code>## [1] 1 2 3 4 5
+</code></pre>
+
+<pre><code class="r">names(my.vector) &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;)  # don&#39;t be scared!
+my.vector
+</code></pre>
+
+<pre><code>## a b c d e 
+## 1 2 3 4 5
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>Selecting from vectors with <code>[ ]</code></h2>
+  </hgroup>
+  <article>
+    <pre><code class="r">my.vector[c(2, 4)]                             # by index numbers
+</code></pre>
+
+<pre><code>## b d 
+## 2 4
+</code></pre>
+
+<pre><code class="r">my.vector[c(&#39;c&#39;, &#39;e&#39;)]                         # by names
+</code></pre>
+
+<pre><code>## c e 
+## 3 5
+</code></pre>
+
+<pre><code class="r">my.vector[c(TRUE, FALSE, TRUE, FALSE, TRUE)]   # with logicals
+</code></pre>
+
+<pre><code>## a c e 
+## 1 3 5
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    <h2>Good things to do with vectors</h2>
+  </hgroup>
+  <article>
+    <pre><code class="r">length(my.vector)   #  How long is my vector?
+</code></pre>
+
+<pre><code>## [1] 5
+</code></pre>
+
+<pre><code class="r">sum(my.vector)      #  What if I add up the numbers in my vector?
+</code></pre>
+
+<pre><code>## [1] 15
+</code></pre>
+
+<pre><code class="r">sum(my.vector &lt; 4)  #  Alternative: length(my.vector[my.vector &lt; 4])
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-24" style="background:;">
+  <hgroup>
+    <h2>Super-vectors</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Matrices are vectors with a number of columns and a number of rows, which should all jive.
+
+<ul>
+<li>Multiplication is element-wise for <code>*</code>, matrix-wise for <code>%*%</code>.</li>
+</ul></li>
+<li>Lists are like vectors where each element could be itself a vector.
+
+<ul>
+<li>Compare <code>c(1:3, 4)</code> with <code>list(1:3, 4)</code>.</li>
+</ul></li>
+<li>Data frames are lists with every vector equal length, and you get row names.</li>
+</ul>
+
+<pre><code class="r">(my.data &lt;- read.csv(&quot;http://bit.ly/NYUdataset&quot;))
+</code></pre>
+
+<pre><code>##    id gender age time health1 health2 health3 health4 health5 health6
+## 1   1      M  51   15       1       4       2       1       4       5
+## 2   2      F  35   30       2       3       3       2       3       4
+## 3   3      F  29   25       5       2       4       2       1       3
+## 4   4      M  21   40       5       1       5       4       2       1
+## 5   5      M  56   30       2       4       2       4       3       3
+## 6   6      M  72   10       1       5       4       2       4       5
+## 7   7      F  46   20       2       5       3       1       3       4
+## 8   8      M  33   25       5       2       4       5       2       1
+## 9   9      F  36   30       3       3       4       5       2       2
+## 10 10      M  42   20       3       3       3       4       2       4
+## 11 11      F  41   10       2       4       3       3       3       3
+## 12 12      F  57   45       1       4       2       1       5       5
+## 13 13      M  30   10       3       2       3       4       1       3
+## 14 14      F  48   15       5       3       3       4       2       2
+## 15 15      M  32    0       4       2       4       3       2       2
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>Investigating a list or data frame</h2>
+  </hgroup>
+  <article>
+    <pre><code class="r">str(my.data)
+summary(my.data)
+</code></pre>
+
+<p>You can access a particular vector in a list or data frame in several ways:</p>
+
+<pre><code class="r">my.data$gender
+my.data[[2]]
+my.data[[&quot;gender&quot;]]
+with(my.data, gender)
+</code></pre>
+
+<p>You can subset using <code>[column(s), row(s)]</code>, both parts just like a single vector.</p>
+
+<pre><code class="r">my.data[2, &quot;age&quot;]
+</code></pre>
+
+<pre><code>## [1] 35
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-26" style="background:;">
   <hgroup>
     <h2>More!</h2>
   </hgroup>
@@ -368,7 +642,7 @@ c(9, 7, TRUE, FALSE, &quot;cow&quot;)
     <p>There are many packages available on the Comprehensive R Archive Network (<a href="http://cran.r-project.org/">CRAN</a>) which can be easily installed and loaded into R. One very popular package is <code>ggplot2</code>, a graphing library.</p>
 
 <pre><code class="r">install.packages(&#39;ggplot2&#39;)  # Do this once per machine.
-library(ggplot2)             # Do this once per session.
+library(ggplot2)             # Do this once per R session.
 </code></pre>
 
 <p>After installing and loading a package, you can use the functions it provides.</p>
@@ -376,13 +650,28 @@ library(ggplot2)             # Do this once per session.
 <pre><code class="r">qplot(x = carat, y = price, color = cut, data = diamonds) + theme_bw()
 </code></pre>
 
-<p><img src="figure/unnamed-chunk-9.png" alt="plot of chunk unnamed-chunk-9"> </p>
+<p><img src="figure/unnamed-chunk-23.png" alt="plot of chunk unnamed-chunk-23"> </p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-17" style="background:;">
+      <slide class="" id="slide-27" style="background:;">
+  <hgroup>
+    <h2>Thank you! Questions! Survey!</h2>
+  </hgroup>
+  <article>
+    <p><center></p>
+
+<h3><a href="http://bit.ly/NYUintroRsurvey">http://bit.ly/NYUintroRsurvey</a></h3>
+
+<p></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-28" style="background:;">
   <hgroup>
     <h2>Working Directories</h2>
   </hgroup>
@@ -403,7 +692,7 @@ library(ggplot2)             # Do this once per session.
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-18" style="background:;">
+      <slide class="" id="slide-29" style="background:;">
   <hgroup>
     <h2>Writing R Programs</h2>
   </hgroup>
@@ -425,7 +714,7 @@ library(ggplot2)             # Do this once per session.
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-19" style="background:;">
+      <slide class="" id="slide-30" style="background:;">
   <hgroup>
     <h2>Using Functions</h2>
   </hgroup>
@@ -458,7 +747,7 @@ sum(c(1, 2, 3, NA), rm.na = TRUE)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-20" style="background:;">
+      <slide class="" id="slide-31" style="background:;">
   <hgroup>
     <h2>Packages</h2>
   </hgroup>
@@ -485,7 +774,7 @@ sum(c(1, 2, 3, NA), rm.na = TRUE)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-21" style="background:;">
+      <slide class="" id="slide-32" style="background:;">
   <hgroup>
     <h2>Objects</h2>
   </hgroup>
@@ -510,7 +799,7 @@ var2 = &quot;a&quot;
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-22" style="background:;">
+      <slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>Vectors</h2>
   </hgroup>
@@ -543,7 +832,7 @@ var2 = &quot;a&quot;
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-23" style="background:;">
+      <slide class="" id="slide-34" style="background:;">
   <hgroup>
     <h2>Workspace</h2>
   </hgroup>
@@ -560,7 +849,7 @@ var2 = &quot;a&quot;
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-24" style="background:;">
+      <slide class="" id="slide-35" style="background:;">
   <hgroup>
     <h2>Data Frames</h2>
   </hgroup>
@@ -587,7 +876,7 @@ data$score
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-25" style="background:;">
+      <slide class="" id="slide-36" style="background:;">
   <hgroup>
     <h2>Importing Datasets</h2>
   </hgroup>
@@ -605,7 +894,7 @@ data$score
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-26" style="background:;">
+      <slide class="" id="slide-37" style="background:;">
   <hgroup>
     <h2>Editing Data</h2>
   </hgroup>
@@ -637,7 +926,7 @@ data$score
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-27" style="background:;">
+      <slide class="" id="slide-38" style="background:;">
   <hgroup>
     <h2>Recoding &amp; Computing Variables</h2>
   </hgroup>
@@ -663,7 +952,7 @@ data$health = mean(data[,c(“health1”, “health2”, … , “health6”)])
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-28" style="background:;">
+      <slide class="" id="slide-39" style="background:;">
   <hgroup>
     <h2>Creating Subsets</h2>
   </hgroup>
@@ -693,7 +982,7 @@ data$health = mean(data[,c(“health1”, “health2”, … , “health6”)])
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-29" style="background:;">
+      <slide class="" id="slide-40" style="background:;">
   <hgroup>
     <h2>Descriptive Statistics &amp; Graphics</h2>
   </hgroup>
@@ -713,7 +1002,7 @@ data$health = mean(data[,c(“health1”, “health2”, … , “health6”)])
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-30" style="background:;">
+      <slide class="" id="slide-41" style="background:;">
   <hgroup>
     <h2>Statistical Analysis</h2>
   </hgroup>
@@ -736,7 +1025,7 @@ data$health = mean(data[,c(“health1”, “health2”, … , “health6”)])
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-31" style="background:;">
+      <slide class="" id="slide-42" style="background:;">
   <hgroup>
     <h2>Evaluation</h2>
   </hgroup>
@@ -751,7 +1040,7 @@ data$health = mean(data[,c(“health1”, “health2”, … , “health6”)])
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-32" style="background:;">
+      <slide class="" id="slide-43" style="background:;">
   <hgroup>
     <h2>Additional Help</h2>
   </hgroup>

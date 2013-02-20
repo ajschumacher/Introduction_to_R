@@ -128,6 +128,7 @@ github:
 ## Why not use R?
 
 * It's not Excel.
+* It's not Mathematica/Maple/etc.
 * It's not SAS/Stata/SPSS/etc.
 * It's not C.
 * Defaults to in-memory.
@@ -154,12 +155,14 @@ Anything you want to do in R is done by telling R to run a function.
 
 To run a function with no arguments, follow its name with parentheses.
 
+
 ```r
 help()
 ```
 
 
 Arguments are passed inside the parentheses. Arguments are usually named, but names can be omitted if it's unambiguous.
+
 
 ```r
 help(topic = getwd)
@@ -169,8 +172,10 @@ help(getwd)
 
 If you don't include parentheses, R will try to give you the function itself.
 
+
 ```r
 help
+help.search
 ```
 
 
@@ -205,6 +210,35 @@ y <- 8      #  This is what you'll always do.
 
 ---
 
+## Everything is a vector.
+
+
+```r
+42:100
+```
+
+```
+##  [1]  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58
+## [18]  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75
+## [35]  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92
+## [52]  93  94  95  96  97  98  99 100
+```
+
+
+The numbers in brackets tell you the position in the vector at the start of the line. So:
+
+
+```r
+42
+```
+
+```
+## [1] 42
+```
+
+
+---
+
 ## Everything is a vector. Vector of what?
 
 
@@ -231,6 +265,259 @@ c(9, 7, TRUE, FALSE, "cow")
 ```
 
 
+Other things: `NA` (missing), `NULL` (not a thing), `NaN` (`sqrt(-1)`), `Inf` (`1/0`).
+
+---
+
+## Vectorized Operations and Recycling
+
+Most operations happen element-wise.
+
+
+```r
+c(1, 2, 3, 4) + c(100, 1000, 10000, 10000)
+```
+
+```
+## [1]   101  1002 10003 10004
+```
+
+
+If the vectors have different lengths, they shorter one gets 'recycled'.
+
+
+```r
+c(1, 2, 3, 4) + c(100, 1000)
+```
+
+```
+## [1]  101 1002  103 1004
+```
+
+
+---
+
+## Vectorized Operations and Recycling
+
+What will happen with these?
+
+
+```r
+c(1, 2) * c(4, 5, 6)
+
+1 + 1:10
+
+1:10 / 10
+
+1:10 < 5
+```
+
+
+---
+
+## Vectorized Operations and Recycling
+
+
+```r
+c(1, 2) * c(4, 5, 6)
+```
+
+```
+## Warning: longer object length is not a multiple of shorter object length
+```
+
+```
+## [1]  4 10  6
+```
+
+```r
+1 + 1:10
+```
+
+```
+##  [1]  2  3  4  5  6  7  8  9 10 11
+```
+
+
+---
+
+## Vectorized Operations and Recycling
+
+
+```r
+1:10 / 10
+```
+
+```
+##  [1] 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+```
+
+```r
+1:10 < 5
+```
+
+```
+##  [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+```
+
+
+---
+
+## Things can have names.
+
+
+```r
+my.vector <- 1:5
+my.vector
+```
+
+```
+## [1] 1 2 3 4 5
+```
+
+```r
+names(my.vector) <- c("a", "b", "c", "d", "e")  # don't be scared!
+my.vector
+```
+
+```
+## a b c d e 
+## 1 2 3 4 5
+```
+
+
+---
+
+## Selecting from vectors with `[ ]`
+
+
+```r
+my.vector[c(2, 4)]                             # by index numbers
+```
+
+```
+## b d 
+## 2 4
+```
+
+```r
+my.vector[c('c', 'e')]                         # by names
+```
+
+```
+## c e 
+## 3 5
+```
+
+```r
+my.vector[c(TRUE, FALSE, TRUE, FALSE, TRUE)]   # with logicals
+```
+
+```
+## a c e 
+## 1 3 5
+```
+
+
+---
+
+## Good things to do with vectors
+
+
+```r
+length(my.vector)   #  How long is my vector?
+```
+
+```
+## [1] 5
+```
+
+```r
+sum(my.vector)      #  What if I add up the numbers in my vector?
+```
+
+```
+## [1] 15
+```
+
+```r
+sum(my.vector < 4)  #  Alternative: length(my.vector[my.vector < 4])
+```
+
+```
+## [1] 3
+```
+
+
+---
+
+## Super-vectors
+
+* Matrices are vectors with a number of columns and a number of rows, which should all jive.
+    * Multiplication is element-wise for `*`, matrix-wise for `%*%`.
+* Lists are like vectors where each element could be itself a vector.
+    * Compare `c(1:3, 4)` with `list(1:3, 4)`.
+* Data frames are lists with every vector equal length, and you get row names.
+
+
+```r
+(my.data <- read.csv("http://bit.ly/NYUdataset"))
+```
+
+```
+##    id gender age time health1 health2 health3 health4 health5 health6
+## 1   1      M  51   15       1       4       2       1       4       5
+## 2   2      F  35   30       2       3       3       2       3       4
+## 3   3      F  29   25       5       2       4       2       1       3
+## 4   4      M  21   40       5       1       5       4       2       1
+## 5   5      M  56   30       2       4       2       4       3       3
+## 6   6      M  72   10       1       5       4       2       4       5
+## 7   7      F  46   20       2       5       3       1       3       4
+## 8   8      M  33   25       5       2       4       5       2       1
+## 9   9      F  36   30       3       3       4       5       2       2
+## 10 10      M  42   20       3       3       3       4       2       4
+## 11 11      F  41   10       2       4       3       3       3       3
+## 12 12      F  57   45       1       4       2       1       5       5
+## 13 13      M  30   10       3       2       3       4       1       3
+## 14 14      F  48   15       5       3       3       4       2       2
+## 15 15      M  32    0       4       2       4       3       2       2
+```
+
+
+---
+
+## Investigating a list or data frame
+
+
+```r
+str(my.data)
+summary(my.data)
+```
+
+
+You can access a particular vector in a list or data frame in several ways:
+
+
+```r
+my.data$gender
+my.data[[2]]
+my.data[["gender"]]
+with(my.data, gender)
+```
+
+
+You can subset using `[column(s), row(s)]`, both parts just like a single vector.
+
+
+```r
+my.data[2, "age"]
+```
+
+```
+## [1] 35
+```
+
+
 ---
 
 ## More!
@@ -240,7 +527,7 @@ There are many packages available on the Comprehensive R Archive Network ([CRAN]
 
 ```r
 install.packages('ggplot2')  # Do this once per machine.
-library(ggplot2)             # Do this once per session.
+library(ggplot2)             # Do this once per R session.
 ```
 
 
@@ -251,8 +538,16 @@ After installing and loading a package, you can use the functions it provides.
 qplot(x = carat, y = price, color = cut, data = diamonds) + theme_bw()
 ```
 
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
+![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23.png) 
 
+
+---
+
+## Thank you! Questions! Survey!
+
+<center>
+### [http://bit.ly/NYUintroRsurvey](http://bit.ly/NYUintroRsurvey)
+</center>
 
 ---
 
