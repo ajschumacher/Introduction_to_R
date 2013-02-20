@@ -636,6 +636,59 @@ with(my.data, gender)
 
       <slide class="" id="slide-26" style="background:;">
   <hgroup>
+    <h2>Working with data frames?</h2>
+  </hgroup>
+  <article>
+    <p>How can we select the <code>time</code>s for females?</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-27" style="background:;">
+  <hgroup>
+    <h2>Working with data frames!</h2>
+  </hgroup>
+  <article>
+    <p>How can we select the <code>time</code>s for females?</p>
+
+<pre><code class="r">my.data[my.data$gender == &quot;F&quot;, &quot;time&quot;]
+</code></pre>
+
+<p>Compare with the <code>subset()</code> function:</p>
+
+<pre><code class="r">subset(my.data, gender == &quot;F&quot;, select = &quot;time&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-28" style="background:;">
+  <hgroup>
+    <h2>Working with data frames</h2>
+  </hgroup>
+  <article>
+    <p>To add / compute / make a new column, just assign to it:</p>
+
+<pre><code class="r">my.data$number.five &lt;- 5
+my.data$mean.1.2 &lt;- my.data$health1 + my.data$health2
+my.data$health &lt;- rowMeans(my.data[5:10])
+</code></pre>
+
+<p>To drop / delete / remove a column, you have options:</p>
+
+<pre><code class="r">my.data$number.five &lt;- NULL         #  remove from the data frame &#39;in place&#39;
+my.new.data &lt;- my.data[1:10]        #  make a new smaller data frame
+my.new.data &lt;- my.data[-c(11,12)]   #  same as last
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-29" style="background:;">
+  <hgroup>
     <h2>Some Statistics</h2>
   </hgroup>
   <article>
@@ -657,7 +710,7 @@ aov(health1 ~ age + gender, data = my.data)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-27" style="background:;">
+      <slide class="" id="slide-30" style="background:;">
   <hgroup>
     <h2>Base graphics</h2>
   </hgroup>
@@ -681,7 +734,7 @@ plot(my.model)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-28" style="background:;">
+      <slide class="" id="slide-31" style="background:;">
   <hgroup>
     <h2>More!</h2>
   </hgroup>
@@ -697,13 +750,13 @@ library(ggplot2)             # Do this once per R session.
 <pre><code class="r">qplot(x = carat, y = price, color = cut, data = diamonds) + theme_bw()
 </code></pre>
 
-<p><img src="figure/unnamed-chunk-25.png" alt="plot of chunk unnamed-chunk-25"> </p>
+<p><img src="figure/unnamed-chunk-29.png" alt="plot of chunk unnamed-chunk-29"> </p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-29" style="background:;">
+      <slide class="" id="slide-32" style="background:;">
   <hgroup>
     <h2>Thank you! Questions! Survey!</h2>
   </hgroup>

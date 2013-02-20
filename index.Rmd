@@ -356,6 +356,48 @@ my.data[2, 'age']
 
 ---
 
+## Working with data frames?
+
+How can we select the `time`s for females?
+
+---
+
+## Working with data frames!
+
+How can we select the `time`s for females?
+
+```{r, eval=FALSE}
+my.data[my.data$gender=='F', "time"]
+```
+
+Compare with the `subset()` function:
+
+```{r, eval=FALSE}
+subset(my.data, gender=='F', select="time")
+```
+
+---
+
+## Working with data frames
+
+To add / compute / make a new column, just assign to it:
+
+```{r}
+my.data$number.five <- 5
+my.data$mean.1.2 <- my.data$health1 + my.data$health2
+my.data$health <- rowMeans(my.data[5:10])
+```
+
+To drop / delete / remove a column, you have options:
+
+```{r, tidy=FALSE}
+my.data$number.five <- NULL         #  remove from the data frame 'in place'
+my.new.data <- my.data[1:10]        #  make a new smaller data frame
+my.new.data <- my.data[-c(11,12)]   #  same as last
+```
+
+---
+
 ## Some Statistics
 
 ```{r, eval=FALSE}

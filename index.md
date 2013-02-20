@@ -520,6 +520,56 @@ my.data[2, "age"]
 
 ---
 
+## Working with data frames?
+
+How can we select the `time`s for females?
+
+---
+
+## Working with data frames!
+
+How can we select the `time`s for females?
+
+
+```r
+my.data[my.data$gender == "F", "time"]
+```
+
+
+Compare with the `subset()` function:
+
+
+```r
+subset(my.data, gender == "F", select = "time")
+```
+
+
+---
+
+## Working with data frames
+
+To add / compute / make a new column, just assign to it:
+
+
+```r
+my.data$number.five <- 5
+my.data$mean.1.2 <- my.data$health1 + my.data$health2
+my.data$health <- rowMeans(my.data[5:10])
+```
+
+
+To drop / delete / remove a column, you have options:
+
+
+```r
+my.data$number.five <- NULL         #  remove from the data frame 'in place'
+my.new.data <- my.data[1:10]        #  make a new smaller data frame
+my.new.data <- my.data[-c(11,12)]   #  same as last
+```
+
+
+---
+
 ## Some Statistics
 
 
@@ -581,7 +631,7 @@ After installing and loading a package, you can use the functions it provides.
 qplot(x = carat, y = price, color = cut, data = diamonds) + theme_bw()
 ```
 
-![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25.png) 
+![plot of chunk unnamed-chunk-29](figure/unnamed-chunk-29.png) 
 
 
 ---
