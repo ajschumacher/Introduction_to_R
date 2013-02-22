@@ -1,4 +1,5 @@
 ---
+
 title       : Introduction to R
 subtitle    : bit.ly/NYUintroR
 author      : Aaron Schumacher
