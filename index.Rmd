@@ -3,7 +3,7 @@ title       : Introduction to R
 subtitle    : bit.ly/NYUintroR
 author      : Aaron Schumacher
 job         : Senior Data Services Specialist
-biglogo        : data_services_logo.png
+biglogo     : data_services_logo.png
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # {tomorrow, solarized_light}
@@ -13,6 +13,7 @@ license     : by-nc-sa
 github:
   user: ajschumacher
   repo: Introduction_to_R
+
 --- &twocol
 
 ## [NYU Data Services](http://bit.ly/nyudataservices)
@@ -353,7 +354,7 @@ my.data[['gender']]
 with(my.data, gender)
 ```
 
-You can subset using `[column(s), row(s)]`, both parts just like selecting from a single vector.
+You can subset using `[row(s), column(s)]`, both parts just like selecting from a single vector.
 
 ```{r}
 my.data[2, 'age']
