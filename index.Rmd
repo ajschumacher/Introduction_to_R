@@ -149,6 +149,12 @@ An Integrated Development Environment (IDE) for R. Check it out!
 
 ---
 
+## The source for this presentation
+
+<iframe src="index.txt" height=600px /></iframe>
+
+---
+
 ## Everything is a function.
 
 Anything you want to do in R is done by telling R to run a function.

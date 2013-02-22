@@ -278,6 +278,17 @@
 
       <slide class="" id="slide-13" style="background:;">
   <hgroup>
+    <h2>The source for this presentation</h2>
+  </hgroup>
+  <article>
+    <iframe src="index.txt" height=600px /></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-14" style="background:;">
+  <hgroup>
     <h2>Everything is a function.</h2>
   </hgroup>
   <article>
@@ -304,7 +315,7 @@ help.search
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-14" style="background:;">
+      <slide class="" id="slide-15" style="background:;">
   <hgroup>
     <h2>Everything is a function.</h2>
   </hgroup>
@@ -331,7 +342,7 @@ y &lt;- 8      #  This is what you&#39;ll always do.
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-15" style="background:;">
+      <slide class="" id="slide-16" style="background:;">
   <hgroup>
     <h2>Everything is a vector.</h2>
   </hgroup>
@@ -357,7 +368,7 @@ y &lt;- 8      #  This is what you&#39;ll always do.
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-16" style="background:;">
+      <slide class="" id="slide-17" style="background:;">
   <hgroup>
     <h2>Everything is a vector. Vector of what?</h2>
   </hgroup>
@@ -386,7 +397,7 @@ c(9, 7, TRUE, FALSE, &quot;cow&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-17" style="background:;">
+      <slide class="" id="slide-18" style="background:;">
   <hgroup>
     <h2>Vectorized Operations and Recycling</h2>
   </hgroup>
@@ -411,7 +422,7 @@ c(9, 7, TRUE, FALSE, &quot;cow&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-18" style="background:;">
+      <slide class="" id="slide-19" style="background:;">
   <hgroup>
     <h2>Vectorized Operations and Recycling</h2>
   </hgroup>
@@ -431,7 +442,7 @@ c(9, 7, TRUE, FALSE, &quot;cow&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-19" style="background:;">
+      <slide class="" id="slide-20" style="background:;">
   <hgroup>
     <h2>Vectorized Operations and Recycling</h2>
   </hgroup>
@@ -455,7 +466,7 @@ c(9, 7, TRUE, FALSE, &quot;cow&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-20" style="background:;">
+      <slide class="" id="slide-21" style="background:;">
   <hgroup>
     <h2>Vectorized Operations and Recycling</h2>
   </hgroup>
@@ -476,7 +487,7 @@ c(9, 7, TRUE, FALSE, &quot;cow&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-21" style="background:;">
+      <slide class="" id="slide-22" style="background:;">
   <hgroup>
     <h2>Things can have names.</h2>
   </hgroup>
@@ -500,7 +511,7 @@ my.vector
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-22" style="background:;">
+      <slide class="" id="slide-23" style="background:;">
   <hgroup>
     <h2>Selecting from vectors with <code>[ ]</code></h2>
   </hgroup>
@@ -530,7 +541,7 @@ my.vector
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-23" style="background:;">
+      <slide class="" id="slide-24" style="background:;">
   <hgroup>
     <h2>Good things to do with vectors</h2>
   </hgroup>
@@ -557,7 +568,7 @@ my.vector
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-24" style="background:;">
+      <slide class="" id="slide-25" style="background:;">
   <hgroup>
     <h2>... Data Frames!</h2>
   </hgroup>
@@ -601,7 +612,7 @@ my.vector
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-25" style="background:;">
+      <slide class="" id="slide-26" style="background:;">
   <hgroup>
     <h2>Working with data frames</h2>
   </hgroup>
@@ -630,7 +641,7 @@ with(my.data, gender)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-26" style="background:;">
+      <slide class="" id="slide-27" style="background:;">
   <hgroup>
     <h2>Working with data frames?</h2>
   </hgroup>
@@ -641,7 +652,7 @@ with(my.data, gender)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-27" style="background:;">
+      <slide class="" id="slide-28" style="background:;">
   <hgroup>
     <h2>Working with data frames!</h2>
   </hgroup>
@@ -660,7 +671,7 @@ with(my.data, gender)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-28" style="background:;">
+      <slide class="" id="slide-29" style="background:;">
   <hgroup>
     <h2>Working with data frames</h2>
   </hgroup>
@@ -683,7 +694,7 @@ my.new.data &lt;- my.data[-c(11,12)]   #  same as last
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-29" style="background:;">
+      <slide class="" id="slide-30" style="background:;">
   <hgroup>
     <h2>Some Statistics</h2>
   </hgroup>
@@ -706,7 +717,7 @@ aov(health1 ~ age + gender, data = my.data)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-30" style="background:;">
+      <slide class="" id="slide-31" style="background:;">
   <hgroup>
     <h2>Base graphics</h2>
   </hgroup>
@@ -714,7 +725,8 @@ aov(health1 ~ age + gender, data = my.data)
     <pre><code class="r">with(my.data, barplot(table(gender)))
 plot(my.data$age)
 hist(my.data$age)
-hist(my.data$age, col = &quot;cornflowerblue&quot;, breaks = 20, xlab = &quot;Age&quot;, main = &quot;Participants&quot;)
+hist(my.data$age, col = &quot;cornflowerblue&quot;, breaks = 20, xlab = &quot;Age&quot;, 
+    main = &quot;Participants&quot;)
 boxplot(my.data$age)
 with(my.data, boxplot(age ~ gender))
 with(my.data, plot(health1, health2))
@@ -730,7 +742,7 @@ plot(my.model)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-31" style="background:;">
+      <slide class="" id="slide-32" style="background:;">
   <hgroup>
     <h2>More!</h2>
   </hgroup>
@@ -752,7 +764,7 @@ library(ggplot2)             # Do this once per R session.
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-32" style="background:;">
+      <slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>Thank you! Questions! Survey!</h2>
   </hgroup>

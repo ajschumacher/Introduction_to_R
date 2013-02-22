@@ -148,6 +148,12 @@ An Integrated Development Environment (IDE) for R. Check it out!
 
 ---
 
+## The source for this presentation
+
+<iframe src="index.txt" height=600px /></iframe>
+
+---
+
 ## Everything is a function.
 
 Anything you want to do in R is done by telling R to run a function.
@@ -597,7 +603,8 @@ aov(health1 ~ age + gender, data = my.data)
 with(my.data, barplot(table(gender)))
 plot(my.data$age)
 hist(my.data$age)
-hist(my.data$age, col = "cornflowerblue", breaks = 20, xlab = "Age", main = "Participants")
+hist(my.data$age, col = "cornflowerblue", breaks = 20, xlab = "Age", 
+    main = "Participants")
 boxplot(my.data$age)
 with(my.data, boxplot(age ~ gender))
 with(my.data, plot(health1, health2))
