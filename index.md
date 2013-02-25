@@ -194,22 +194,69 @@ Even things that don't look like functions are functions.
 
 
 ```r
-c(5 + 7 == "+"(5, 7),       #  Even arithmetic is done by functions.
-  all(1:10 == ":"(1, 10)))  #  Another useful 'infix' function.
+5 + 7
 ```
 
 ```
-## [1] TRUE TRUE
+## [1] 12
+```
+
+```r
+"+"(5,7)
+```
+
+```
+## [1] 12
 ```
 
 
-Try this:
+Arithmetic operations are functions.
+
+---
+
+## Everything is a function.
+
+Even things that don't look like functions are functions.
 
 
 ```r
-?"<-"       #  '?' is shorthand for 'help()'
-"<-"(x, 5)  #  This will work.
-y <- 8      #  This is what you'll always do.
+":"(1,10)
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10
+```
+
+```r
+1:10
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10
+```
+
+
+This is a super handy function! It returns a vector.
+
+---
+
+## Everything is a function.
+
+Super handy short-hand for other functions. First, get help fast:
+
+
+```r
+?glm             # this is identical to: help(glm)
+```
+
+
+And of course, assign things to variables:
+
+
+```r
+my.object <- 8   #  you will never see the equivalent: "<-"(my.object, 8)
+
+
 
 # Okay, comments aren't functions.
 ```
@@ -703,7 +750,7 @@ After installing and loading a package, you can use the functions it provides.
 qplot(x = carat, y = price, color = cut, data = diamonds) + theme_bw()
 ```
 
-![plot of chunk unnamed-chunk-33](figure/unnamed-chunk-33.png) 
+![plot of chunk unnamed-chunk-35](figure/unnamed-chunk-35.png) 
 
 
 ---

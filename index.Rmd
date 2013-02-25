@@ -189,16 +189,41 @@ help.search
 Even things that don't look like functions are functions.
 
 ```{r, tidy=FALSE}
-c(5 + 7 == "+"(5, 7),       #  Even arithmetic is done by functions.
-  all(1:10 == ":"(1, 10)))  #  Another useful 'infix' function.
+5 + 7
+"+"(5,7)
 ```
 
-Try this:
+Arithmetic operations are functions.
+
+---
+
+## Everything is a function.
+
+Even things that don't look like functions are functions.
 
 ```{r, tidy=FALSE}
-?"<-"       #  '?' is shorthand for 'help()'
-"<-"(x, 5)  #  This will work.
-y <- 8      #  This is what you'll always do.
+":"(1,10)
+1:10
+```
+
+This is a super handy function! It returns a vector.
+
+---
+
+## Everything is a function.
+
+Super handy short-hand for other functions. First, get help fast:
+
+```{r, tidy=FALSE, eval=FALSE}
+?glm             # this is identical to: help(glm)
+```
+
+And of course, assign things to variables:
+
+```{r, tidy=FALSE, eval=FALSE}
+my.object <- 8   #  you will never see the equivalent: "<-"(my.object, 8)
+
+
 
 # Okay, comments aren't functions.
 ```
