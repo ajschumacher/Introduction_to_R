@@ -246,6 +246,32 @@ The numbers in brackets tell you the position in the vector at the start of the 
 
 ---
 
+## `c()` is a function that combines vectors
+
+
+```r
+2, 4      #  this will fail
+
+c(2, 4)   #  this will make a vector containing first 2 then 4
+```
+
+
+Very often you will want to pass one vector as an argument to a function.
+
+
+```r
+mean(2, 4)      #  this passes the function two arguments,
+                #   a vector containing 2 and a vector containing 4
+
+mean(c(2, 4))   #  this passes the function one argument,
+                #   a vector containing first 2 then 4
+```
+
+
+This kind of thing is common in R and an easy way to make a mistake.
+
+---
+
 ## Everything is a vector. Vector of what?
 
 
@@ -428,6 +454,45 @@ my.vector[c(TRUE, FALSE, TRUE, FALSE, TRUE)]   # with logicals
 
 ---
 
+## Using logical selection
+
+
+```r
+(my.numbers <- sample(1:10, 20, replace = TRUE))
+```
+
+```
+##  [1] 10 10  3  9  7  6  8  2  7  8  5  8 10  3  5 10 10  2  5  6
+```
+
+
+How can we get just the entries less than five?
+
+---
+
+## Using logical selection
+
+
+```r
+my.numbers < 5
+```
+
+```
+##  [1] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
+## [12] FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE
+```
+
+```r
+my.numbers[my.numbers < 5]
+```
+
+```
+## [1] 3 2 3 2
+```
+
+
+---
+
 ## Good things to do with vectors
 
 
@@ -605,8 +670,7 @@ aov(health1 ~ age + gender, data = my.data)
 with(my.data, barplot(table(gender)))
 plot(my.data$age)
 hist(my.data$age)
-hist(my.data$age, col = "cornflowerblue", breaks = 20, xlab = "Age", 
-    main = "Participants")
+hist(my.data$age, col = "cornflowerblue", breaks = 20, xlab = "Age", main = "Participants")
 boxplot(my.data$age)
 with(my.data, boxplot(age ~ gender))
 with(my.data, plot(health1, health2))
@@ -639,7 +703,7 @@ After installing and loading a package, you can use the functions it provides.
 qplot(x = carat, y = price, color = cut, data = diamonds) + theme_bw()
 ```
 
-![plot of chunk unnamed-chunk-29](figure/unnamed-chunk-29.png) 
+![plot of chunk unnamed-chunk-33](figure/unnamed-chunk-33.png) 
 
 
 ---

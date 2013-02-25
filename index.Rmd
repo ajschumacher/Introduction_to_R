@@ -21,6 +21,7 @@ github:
 
 ```{r setup, echo=FALSE,message=FALSE}
 library(ggplot2)
+set.seed(42)
 ```
 
 *** left
@@ -218,6 +219,28 @@ The numbers in brackets tell you the position in the vector at the start of the 
 
 ---
 
+## `c()` is a function that combines vectors
+
+```{r, eval=FALSE, tidy=FALSE}
+2, 4      #  this will fail
+
+c(2, 4)   #  this will make a vector containing first 2 then 4
+```
+
+Very often you will want to pass one vector as an argument to a function.
+
+```{r, tidy=FALSE, eval=FALSE}
+mean(2, 4)      #  this passes the function two arguments,
+                #   a vector containing 2 and a vector containing 4
+
+mean(c(2, 4))   #  this passes the function one argument,
+                #   a vector containing first 2 then 4
+```
+
+This kind of thing is common in R and an easy way to make a mistake.
+
+---
+
 ## Everything is a vector. Vector of what?
 
 ```{r, eval=FALSE}
@@ -311,6 +334,25 @@ my.vector
 my.vector[c(2, 4)]                             # by index numbers
 my.vector[c('c', 'e')]                         # by names
 my.vector[c(TRUE, FALSE, TRUE, FALSE, TRUE)]   # with logicals
+```
+
+---
+
+## Using logical selection
+
+```{r}
+(my.numbers <- sample(1:10, 20, replace=TRUE))
+```
+
+How can we get just the entries less than five?
+
+---
+
+## Using logical selection
+
+```{r}
+my.numbers < 5
+my.numbers[my.numbers < 5]
 ```
 
 ---

@@ -370,6 +370,31 @@ y &lt;- 8      #  This is what you&#39;ll always do.
 
       <slide class="" id="slide-17" style="background:;">
   <hgroup>
+    <h2><code>c()</code> is a function that combines vectors</h2>
+  </hgroup>
+  <article>
+    <pre><code class="r">2, 4      #  this will fail
+
+c(2, 4)   #  this will make a vector containing first 2 then 4
+</code></pre>
+
+<p>Very often you will want to pass one vector as an argument to a function.</p>
+
+<pre><code class="r">mean(2, 4)      #  this passes the function two arguments,
+                #   a vector containing 2 and a vector containing 4
+
+mean(c(2, 4))   #  this passes the function one argument,
+                #   a vector containing first 2 then 4
+</code></pre>
+
+<p>This kind of thing is common in R and an easy way to make a mistake.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-18" style="background:;">
+  <hgroup>
     <h2>Everything is a vector. Vector of what?</h2>
   </hgroup>
   <article>
@@ -397,7 +422,7 @@ c(9, 7, TRUE, FALSE, &quot;cow&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-18" style="background:;">
+      <slide class="" id="slide-19" style="background:;">
   <hgroup>
     <h2>Vectorized Operations and Recycling</h2>
   </hgroup>
@@ -422,7 +447,7 @@ c(9, 7, TRUE, FALSE, &quot;cow&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-19" style="background:;">
+      <slide class="" id="slide-20" style="background:;">
   <hgroup>
     <h2>Vectorized Operations and Recycling</h2>
   </hgroup>
@@ -442,7 +467,7 @@ c(9, 7, TRUE, FALSE, &quot;cow&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-20" style="background:;">
+      <slide class="" id="slide-21" style="background:;">
   <hgroup>
     <h2>Vectorized Operations and Recycling</h2>
   </hgroup>
@@ -466,7 +491,7 @@ c(9, 7, TRUE, FALSE, &quot;cow&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-21" style="background:;">
+      <slide class="" id="slide-22" style="background:;">
   <hgroup>
     <h2>Vectorized Operations and Recycling</h2>
   </hgroup>
@@ -487,7 +512,7 @@ c(9, 7, TRUE, FALSE, &quot;cow&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-22" style="background:;">
+      <slide class="" id="slide-23" style="background:;">
   <hgroup>
     <h2>Things can have names.</h2>
   </hgroup>
@@ -511,7 +536,7 @@ my.vector
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-23" style="background:;">
+      <slide class="" id="slide-24" style="background:;">
   <hgroup>
     <h2>Selecting from vectors with <code>[ ]</code></h2>
   </hgroup>
@@ -541,7 +566,46 @@ my.vector
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-24" style="background:;">
+      <slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>Using logical selection</h2>
+  </hgroup>
+  <article>
+    <pre><code class="r">(my.numbers &lt;- sample(1:10, 20, replace = TRUE))
+</code></pre>
+
+<pre><code>##  [1] 10 10  3  9  7  6  8  2  7  8  5  8 10  3  5 10 10  2  5  6
+</code></pre>
+
+<p>How can we get just the entries less than five?</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-26" style="background:;">
+  <hgroup>
+    <h2>Using logical selection</h2>
+  </hgroup>
+  <article>
+    <pre><code class="r">my.numbers &lt; 5
+</code></pre>
+
+<pre><code>##  [1] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
+## [12] FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE
+</code></pre>
+
+<pre><code class="r">my.numbers[my.numbers &lt; 5]
+</code></pre>
+
+<pre><code>## [1] 3 2 3 2
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-27" style="background:;">
   <hgroup>
     <h2>Good things to do with vectors</h2>
   </hgroup>
@@ -568,7 +632,7 @@ my.vector
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-25" style="background:;">
+      <slide class="" id="slide-28" style="background:;">
   <hgroup>
     <h2>... Data Frames!</h2>
   </hgroup>
@@ -612,7 +676,7 @@ my.vector
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-26" style="background:;">
+      <slide class="" id="slide-29" style="background:;">
   <hgroup>
     <h2>Working with data frames</h2>
   </hgroup>
@@ -641,7 +705,7 @@ with(my.data, gender)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-27" style="background:;">
+      <slide class="" id="slide-30" style="background:;">
   <hgroup>
     <h2>Working with data frames?</h2>
   </hgroup>
@@ -652,7 +716,7 @@ with(my.data, gender)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-28" style="background:;">
+      <slide class="" id="slide-31" style="background:;">
   <hgroup>
     <h2>Working with data frames!</h2>
   </hgroup>
@@ -671,7 +735,7 @@ with(my.data, gender)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-29" style="background:;">
+      <slide class="" id="slide-32" style="background:;">
   <hgroup>
     <h2>Working with data frames</h2>
   </hgroup>
@@ -694,7 +758,7 @@ my.new.data &lt;- my.data[-c(11,12)]   #  same as last
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-30" style="background:;">
+      <slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>Some Statistics</h2>
   </hgroup>
@@ -717,7 +781,7 @@ aov(health1 ~ age + gender, data = my.data)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-31" style="background:;">
+      <slide class="" id="slide-34" style="background:;">
   <hgroup>
     <h2>Base graphics</h2>
   </hgroup>
@@ -725,8 +789,7 @@ aov(health1 ~ age + gender, data = my.data)
     <pre><code class="r">with(my.data, barplot(table(gender)))
 plot(my.data$age)
 hist(my.data$age)
-hist(my.data$age, col = &quot;cornflowerblue&quot;, breaks = 20, xlab = &quot;Age&quot;, 
-    main = &quot;Participants&quot;)
+hist(my.data$age, col = &quot;cornflowerblue&quot;, breaks = 20, xlab = &quot;Age&quot;, main = &quot;Participants&quot;)
 boxplot(my.data$age)
 with(my.data, boxplot(age ~ gender))
 with(my.data, plot(health1, health2))
@@ -742,7 +805,7 @@ plot(my.model)
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-32" style="background:;">
+      <slide class="" id="slide-35" style="background:;">
   <hgroup>
     <h2>More!</h2>
   </hgroup>
@@ -758,13 +821,13 @@ library(ggplot2)             # Do this once per R session.
 <pre><code class="r">qplot(x = carat, y = price, color = cut, data = diamonds) + theme_bw()
 </code></pre>
 
-<p><img src="figure/unnamed-chunk-29.png" alt="plot of chunk unnamed-chunk-29"> </p>
+<p><img src="figure/unnamed-chunk-33.png" alt="plot of chunk unnamed-chunk-33"> </p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-33" style="background:;">
+      <slide class="" id="slide-36" style="background:;">
   <hgroup>
     <h2>Thank you! Questions! Survey!</h2>
   </hgroup>
