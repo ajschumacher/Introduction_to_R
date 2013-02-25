@@ -215,13 +215,13 @@ This is a super handy function! It returns a vector.
 Super handy short-hand for other functions. First, get help fast:
 
 ```{r, tidy=FALSE, eval=FALSE}
-?glm             # this is identical to: help(glm)
+?glm             #  This is identical to: help(glm)
 ```
 
 And of course, assign things to variables:
 
 ```{r, tidy=FALSE, eval=FALSE}
-my.object <- 8   #  you will never see the equivalent: "<-"(my.object, 8)
+my.object <- 8   #  You will never see the equivalent: "<-"(my.object, 8)
 
 
 

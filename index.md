@@ -246,7 +246,7 @@ Super handy short-hand for other functions. First, get help fast:
 
 
 ```r
-?glm             # this is identical to: help(glm)
+?glm             #  This is identical to: help(glm)
 ```
 
 
@@ -254,7 +254,7 @@ And of course, assign things to variables:
 
 
 ```r
-my.object <- 8   #  you will never see the equivalent: "<-"(my.object, 8)
+my.object <- 8   #  You will never see the equivalent: "<-"(my.object, 8)
 
 
 
