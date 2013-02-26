@@ -17,12 +17,13 @@ github:
 
 --- &twocol
 
-## [NYU Data Services](http://bit.ly/nyudataservices)
-
 ```{r setup, echo=FALSE,message=FALSE}
 library(ggplot2)
 set.seed(42)
+options(repos='http://lib.stat.cmu.edu/R/CRAN/')
 ```
+
+## [NYU Data Services](http://bit.ly/nyudataservices)
 
 *** left
 
@@ -122,9 +123,17 @@ set.seed(42)
 
 ---
 
-<center>
-  <img src='assets/img/packagecounts.png' width='950px' />
-</center>
+## Additional packages for R
+
+The Comprehensive R Archive Network (CRAN) hosts this many packages.
+
+This is as of ``r date()``.
+
+```{r}
+length(unique(rownames(available.packages())))
+```
+
+And there are many more in addition to the ones on CRAN.
 
 ---
 

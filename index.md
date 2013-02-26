@@ -17,10 +17,10 @@ github:
 
 --- &twocol
 
+
+
+
 ## [NYU Data Services](http://bit.ly/nyudataservices)
-
-
-
 
 *** left
 
@@ -120,9 +120,23 @@ github:
 
 ---
 
-<center>
-  <img src='assets/img/packagecounts.png' width='950px' />
-</center>
+## Additional packages for R
+
+The Comprehensive R Archive Network (CRAN) hosts this many packages.
+
+This is as of `Tue Feb 26 10:31:22 2013`.
+
+
+```r
+length(unique(rownames(available.packages())))
+```
+
+```
+## [1] 4254
+```
+
+
+And there are many more in addition to the ones on CRAN.
 
 ---
 
@@ -750,7 +764,7 @@ After installing and loading a package, you can use the functions it provides.
 qplot(x = carat, y = price, color = cut, data = diamonds) + theme_bw()
 ```
 
-![plot of chunk unnamed-chunk-35](figure/unnamed-chunk-35.png) 
+![plot of chunk unnamed-chunk-36](figure/unnamed-chunk-36.png) 
 
 
 ---

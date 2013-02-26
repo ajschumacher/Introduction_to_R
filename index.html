@@ -224,12 +224,20 @@
 
       <slide class="" id="slide-9" style="background:;">
   <hgroup>
-    
+    <h2>Additional packages for R</h2>
   </hgroup>
   <article>
-    <p><center>
-  <img src='assets/img/packagecounts.png' width='950px' />
-</center></p>
+    <p>The Comprehensive R Archive Network (CRAN) hosts this many packages.</p>
+
+<p>This is as of <code>Tue Feb 26 10:31:22 2013</code>.</p>
+
+<pre><code class="r">length(unique(rownames(available.packages())))
+</code></pre>
+
+<pre><code>## [1] 4254
+</code></pre>
+
+<p>And there are many more in addition to the ones on CRAN.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -867,7 +875,7 @@ library(ggplot2)             # Do this once per R session.
 <pre><code class="r">qplot(x = carat, y = price, color = cut, data = diamonds) + theme_bw()
 </code></pre>
 
-<p><img src="figure/unnamed-chunk-35.png" alt="plot of chunk unnamed-chunk-35"> </p>
+<p><img src="figure/unnamed-chunk-36.png" alt="plot of chunk unnamed-chunk-36"> </p>
 
   </article>
   <!-- Presenter Notes -->
