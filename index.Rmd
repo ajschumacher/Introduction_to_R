@@ -161,12 +161,6 @@ An Integrated Development Environment (IDE) for R. Check it out!
 
 ---
 
-## The source for this presentation
-
-<iframe src="index.txt" height=600px /></iframe>
-
----
-
 ## Everything is a function.
 
 Anything you want to do in R is done by telling R to run a function.
@@ -221,7 +215,7 @@ This is a super handy function! It returns a vector.
 
 ## Everything is a function.
 
-Super handy short-hand for other functions. First, get help fast:
+Convenient short-hand is available for other functions too. Get help fast:
 
 ```{r, tidy=FALSE, eval=FALSE}
 ?glm             #  This is identical to: help(glm)
@@ -453,9 +447,11 @@ How can we select the `time`s for females?
 my.data[my.data$gender=='F', "time"]
 ```
 
-Compare with the `subset()` function:
+Other options:
 
 ```{r, eval=FALSE}
+my.data$time[my.data$gender=='F']
+
 subset(my.data, gender=='F', select="time")
 ```
 
@@ -533,6 +529,12 @@ After installing and loading a package, you can use the functions it provides.
 ```{r, fig.align='center', fig.height=2.6, fig.width=5}
 qplot(x=carat, y=price, color=cut, data=diamonds) + theme_bw()
 ```
+
+---
+
+## The source for this presentation
+
+<iframe src="index.txt" height=600px /></iframe>
 
 ---
 

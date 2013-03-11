@@ -124,7 +124,7 @@ github:
 
 The Comprehensive R Archive Network (CRAN) hosts this many packages.
 
-This is as of `Tue Feb 26 10:31:22 2013`.
+This is as of `Mon Mar 11 13:28:19 2013`.
 
 
 ```r
@@ -132,7 +132,7 @@ length(unique(rownames(available.packages())))
 ```
 
 ```
-## [1] 4254
+## [1] 4262
 ```
 
 
@@ -161,12 +161,6 @@ And there are many more in addition to the ones on CRAN.
 
 An Integrated Development Environment (IDE) for R. Check it out!
 <center><img src="assets/img/RStudio.png" height=500 /></center>
-
----
-
-## The source for this presentation
-
-<iframe src="index.txt" height=600px /></iframe>
 
 ---
 
@@ -256,7 +250,7 @@ This is a super handy function! It returns a vector.
 
 ## Everything is a function.
 
-Super handy short-hand for other functions. First, get help fast:
+Convenient short-hand is available for other functions too. Get help fast:
 
 
 ```r
@@ -669,10 +663,12 @@ my.data[my.data$gender == "F", "time"]
 ```
 
 
-Compare with the `subset()` function:
+Other options:
 
 
 ```r
+my.data$time[my.data$gender == "F"]
+
 subset(my.data, gender == "F", select = "time")
 ```
 
@@ -766,6 +762,12 @@ qplot(x = carat, y = price, color = cut, data = diamonds) + theme_bw()
 
 ![plot of chunk unnamed-chunk-36](figure/unnamed-chunk-36.png) 
 
+
+---
+
+## The source for this presentation
+
+<iframe src="index.txt" height=600px /></iframe>
 
 ---
 
