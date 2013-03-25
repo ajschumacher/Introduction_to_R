@@ -57,6 +57,7 @@ github:
 * Some statistics
 * Base graphics
 * More!
+* Further resources
 
 *** right
 
@@ -124,7 +125,7 @@ github:
 
 The Comprehensive R Archive Network (CRAN) hosts this many packages.
 
-This is as of `Mon Mar 11 13:28:19 2013`.
+This is as of `Mon Mar 25 13:06:16 2013`.
 
 
 ```r
@@ -132,7 +133,7 @@ length(unique(rownames(available.packages())))
 ```
 
 ```
-## [1] 4262
+## [1] 4291
 ```
 
 
@@ -762,6 +763,38 @@ qplot(x = carat, y = price, color = cut, data = diamonds) + theme_bw()
 
 ![plot of chunk unnamed-chunk-36](figure/unnamed-chunk-36.png) 
 
+
+---
+
+## Further independent resources on R
+
+* [Try R](http://tryr.codeschool.com/): A free online interactive tutorial
+* [A Beginners Guide to R](http://www.amazon.com/Beginners-Guide-Use-Alain-Zuur/dp/0387938362/) (book)
+* [The Art of R Programming](http://www.amazon.com/The-Art-Programming-Statistical-Software/dp/1593273843/) (book)
+
+---
+
+<center>
+ <a style='border-bottom:none;' href='http://tryr.codeschool.com/'>
+  <img src='assets/img/tryr.png' height='600px' />
+ </a>
+</center>
+
+---
+
+<center>
+ <a style='border-bottom:none;' href='http://www.amazon.com/Beginners-Guide-Use-Alain-Zuur/dp/0387938362/'>
+  <img src='assets/img/beginners.png' height='600px' />
+ </a>
+</center>
+
+---
+
+<center>
+ <a style='border-bottom:none;' href='http://www.amazon.com/The-Art-Programming-Statistical-Software/dp/1593273843/'>
+  <img src='assets/img/artofR.png' height='600px' />
+ </a>
+</center>
 
 ---
 
