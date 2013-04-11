@@ -53,7 +53,7 @@ github:
 * What is R / RStudio?
 * Everything is a function.
 * Everything is a vector.
-* ... Data Frames!
+* Data Frames are useful.
 * Some statistics
 * Base graphics
 * More!
@@ -125,7 +125,7 @@ github:
 
 The Comprehensive R Archive Network (CRAN) hosts this many packages.
 
-This is as of `Mon Mar 25 13:06:16 2013`.
+This is as of `Thu Apr 11 11:30:37 2013`.
 
 
 ```r
@@ -133,7 +133,7 @@ length(unique(rownames(available.packages())))
 ```
 
 ```
-## [1] 4291
+## [1] 4332
 ```
 
 
@@ -456,12 +456,12 @@ c(1, 2) * c(4, 5, 6)
 
 
 ```r
-my.vector <- 1:5
+my.vector <- 101:105
 my.vector
 ```
 
 ```
-## [1] 1 2 3 4 5
+## [1] 101 102 103 104 105
 ```
 
 ```r
@@ -470,8 +470,8 @@ my.vector
 ```
 
 ```
-## a b c d e 
-## 1 2 3 4 5
+##   a   b   c   d   e 
+## 101 102 103 104 105
 ```
 
 
@@ -485,8 +485,8 @@ my.vector[c(2, 4)]                             # by index numbers
 ```
 
 ```
-## b d 
-## 2 4
+##   b   d 
+## 102 104
 ```
 
 ```r
@@ -494,8 +494,8 @@ my.vector[c('c', 'e')]                         # by names
 ```
 
 ```
-## c e 
-## 3 5
+##   c   e 
+## 103 105
 ```
 
 ```r
@@ -503,8 +503,8 @@ my.vector[c(TRUE, FALSE, TRUE, FALSE, TRUE)]   # with logicals
 ```
 
 ```
-## a c e 
-## 1 3 5
+##   a   c   e 
+## 101 103 105
 ```
 
 
@@ -565,7 +565,7 @@ sum(my.vector)      #  What if I add up the numbers in my vector?
 ```
 
 ```
-## [1] 15
+## [1] 515
 ```
 
 ```r
@@ -573,13 +573,13 @@ sum(my.vector < 4)  #  Alternative: length(my.vector[my.vector < 4])
 ```
 
 ```
-## [1] 3
+## [1] 0
 ```
 
 
 ---
 
-## ... Data Frames!
+## Data Frames are useful.
 
 * Matrices are vectors with a number of columns and a number of rows, which should all jive.
     * Multiplication is element-wise for `*`, matrix-wise for `%*%`.

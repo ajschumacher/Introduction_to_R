@@ -103,7 +103,7 @@
 <li>What is R / RStudio?</li>
 <li>Everything is a function.</li>
 <li>Everything is a vector.</li>
-<li>... Data Frames!</li>
+<li>Data Frames are useful.</li>
 <li>Some statistics</li>
 <li>Base graphics</li>
 <li>More!</li>
@@ -230,12 +230,12 @@
   <article>
     <p>The Comprehensive R Archive Network (CRAN) hosts this many packages.</p>
 
-<p>This is as of <code>Mon Mar 25 13:06:16 2013</code>.</p>
+<p>This is as of <code>Thu Apr 11 11:30:37 2013</code>.</p>
 
 <pre><code class="r">length(unique(rownames(available.packages())))
 </code></pre>
 
-<pre><code>## [1] 4291
+<pre><code>## [1] 4332
 </code></pre>
 
 <p>And there are many more in addition to the ones on CRAN.</p>
@@ -561,19 +561,19 @@ c(9, 7, TRUE, FALSE, &quot;cow&quot;)
     <h2>Things can have names.</h2>
   </hgroup>
   <article>
-    <pre><code class="r">my.vector &lt;- 1:5
+    <pre><code class="r">my.vector &lt;- 101:105
 my.vector
 </code></pre>
 
-<pre><code>## [1] 1 2 3 4 5
+<pre><code>## [1] 101 102 103 104 105
 </code></pre>
 
 <pre><code class="r">names(my.vector) &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;)  # don&#39;t be scared!
 my.vector
 </code></pre>
 
-<pre><code>## a b c d e 
-## 1 2 3 4 5
+<pre><code>##   a   b   c   d   e 
+## 101 102 103 104 105
 </code></pre>
 
   </article>
@@ -588,22 +588,22 @@ my.vector
     <pre><code class="r">my.vector[c(2, 4)]                             # by index numbers
 </code></pre>
 
-<pre><code>## b d 
-## 2 4
+<pre><code>##   b   d 
+## 102 104
 </code></pre>
 
 <pre><code class="r">my.vector[c(&#39;c&#39;, &#39;e&#39;)]                         # by names
 </code></pre>
 
-<pre><code>## c e 
-## 3 5
+<pre><code>##   c   e 
+## 103 105
 </code></pre>
 
 <pre><code class="r">my.vector[c(TRUE, FALSE, TRUE, FALSE, TRUE)]   # with logicals
 </code></pre>
 
-<pre><code>## a c e 
-## 1 3 5
+<pre><code>##   a   c   e 
+## 101 103 105
 </code></pre>
 
   </article>
@@ -663,13 +663,13 @@ my.vector
 <pre><code class="r">sum(my.vector)      #  What if I add up the numbers in my vector?
 </code></pre>
 
-<pre><code>## [1] 15
+<pre><code>## [1] 515
 </code></pre>
 
 <pre><code class="r">sum(my.vector &lt; 4)  #  Alternative: length(my.vector[my.vector &lt; 4])
 </code></pre>
 
-<pre><code>## [1] 3
+<pre><code>## [1] 0
 </code></pre>
 
   </article>
@@ -678,7 +678,7 @@ my.vector
 
       <slide class="" id="slide-29" style="background:;">
   <hgroup>
-    <h2>... Data Frames!</h2>
+    <h2>Data Frames are useful.</h2>
   </hgroup>
   <article>
     <ul>

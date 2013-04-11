@@ -56,7 +56,7 @@ options(repos='http://lib.stat.cmu.edu/R/CRAN/')
 * What is R / RStudio?
 * Everything is a function.
 * Everything is a vector.
-* ... Data Frames!
+* Data Frames are useful.
 * Some statistics
 * Base graphics
 * More!
@@ -349,7 +349,7 @@ c(1, 2) * c(4, 5, 6)
 ## Things can have names.
 
 ```{r}
-my.vector <- 1:5
+my.vector <- 101:105
 my.vector
 names(my.vector) <- c('a', 'b', 'c', 'd', 'e')  # don't be scared!
 my.vector
@@ -396,7 +396,7 @@ sum(my.vector < 4)  #  Alternative: length(my.vector[my.vector < 4])
 
 ---
 
-## ... Data Frames!
+## Data Frames are useful.
 
 * Matrices are vectors with a number of columns and a number of rows, which should all jive.
     * Multiplication is element-wise for `*`, matrix-wise for `%*%`.
